@@ -1,0 +1,114 @@
+[
+  {
+    "query": "apa itu redis? untuk apa?",
+    "docs_relevant": [
+      "redis.md"
+    ],
+    "retrieve_docs_id": [
+      "redis.md",
+      "redis.md",
+      "redis.md"
+    ]
+  },
+  {
+    "query": "apa framework untuk orchestrate agent?",
+    "docs_relevant": [
+      "langchain.md",
+      "langgraph.md"
+    ],
+    "retrieve_docs_id": [
+      "langgraph.md",
+      "langchain.md",
+      "langgraph.md"
+    ]
+  },
+  {
+    "query": "apa itu tensorflow?",
+    "docs_relevant": [
+      "tf.md"
+    ],
+    "retrieve_docs_id": [
+      "tf.md",
+      "tf.md",
+      "tf.md"
+    ]
+  },
+  {
+    "query": "contoh ai agent",
+    "docs_relevant": [
+      "hermes.md"
+    ],
+    "retrieve_docs_id": [
+      "langchain.md",
+      "langgraph.md",
+      "langchain.md"
+    ]
+  },
+  {
+    "query": "apa itu pytorch dan untuk apa digunakan?",
+    "docs_relevant": [
+      "pytorch.md"
+    ],
+    "retrieve_docs_id": [
+      "pytorch.md",
+      "pytorch.md",
+      "pytorch.md"
+    ]
+  },
+  {
+    "query": "apa itu Keras dan hubungannya dengan deep learning?",
+    "docs_relevant": [
+      "keras.md"
+    ],
+    "retrieve_docs_id": [
+      "keras.md",
+      "keras.md",
+      "keras.md"
+    ]
+  },
+  {
+    "query": "apa itu Kubernetes dan apa fungsinya?",
+    "docs_relevant": [
+      "kubernetes.md"
+    ],
+    "retrieve_docs_id": [
+      "kubernetes.md",
+      "kubernetes.md",
+      "kubernetes.md"
+    ]
+  },
+  {
+    "query": "apa itu Laravel dan digunakan untuk membuat apa?",
+    "docs_relevant": [
+      "laravel.md"
+    ],
+    "retrieve_docs_id": [
+      "laravel.md",
+      "laravel.md",
+      "laravel.md"
+    ]
+  },
+  {
+    "query": "apa itu Vercel dan untuk apa digunakan dalam deployment aplikasi?",
+    "docs_relevant": [
+      "vercel.md"
+    ],
+    "retrieve_docs_id": [
+      "vercel.md",
+      "vercel.md",
+      "vercel.md"
+    ]
+  },
+  {
+    "query": "apa perbedaan LangChain dan LangGraph dalam membangun aplikasi AI agent?",
+    "docs_relevant": [
+      "langchain.md",
+      "langgraph.md"
+    ],
+    "retrieve_docs_id": [
+      "langgraph.md",
+      "langgraph.md",
+      "langgraph.md"
+    ]
+  }
+]

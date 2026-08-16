@@ -1,0 +1,23 @@
+{
+  "k": 3,
+  "variants": {
+    "chunk_overlap": {
+      "hit@3": 1.0,
+      "precision@3": 0.9333333333333332,
+      "mrr@3": 1.0,
+      "count": 10
+    },
+    "chunk_recursive": {
+      "hit@3": 0.9,
+      "precision@3": 0.9,
+      "mrr@3": 0.9,
+      "count": 10
+    },
+    "chunk_sentencebased": {
+      "hit@3": 0.9,
+      "precision@3": 0.9,
+      "mrr@3": 0.9,
+      "count": 10
+    }
+  }
+}

@@ -1,0 +1,42 @@
+[
+    {
+        "query": "apa itu redis? untuk apa?",
+        "docs_relevant": ["redis.md"]
+    },
+    {
+        "query": "apa framework untuk orchestrate agent?",
+        "docs_relevant": ["langchain.md", "langgraph.md"]
+    },
+    {
+        "query": "apa itu tensorflow?",
+        "docs_relevant": ["tf.md"]
+    },
+    {
+        "query": "contoh ai agent",
+        "docs_relevant": ["hermes.md"]
+    },
+    {
+        "query": "apa itu pytorch dan untuk apa digunakan?",
+        "docs_relevant": ["pytorch.md"]
+    },
+    {
+        "query": "apa itu Keras dan hubungannya dengan deep learning?",
+        "docs_relevant": ["keras.md"]
+    },
+    {
+        "query": "apa itu Kubernetes dan apa fungsinya?",
+        "docs_relevant": ["kubernetes.md"]
+    },
+    {
+        "query": "apa itu Laravel dan digunakan untuk membuat apa?",
+        "docs_relevant": ["laravel.md"]
+    },
+    {
+        "query": "apa itu Vercel dan untuk apa digunakan dalam deployment aplikasi?",
+        "docs_relevant": ["vercel.md"]
+    },
+    {
+        "query": "apa perbedaan LangChain dan LangGraph dalam membangun aplikasi AI agent?",
+        "docs_relevant": ["langchain.md", "langgraph.md"]
+    }
+]

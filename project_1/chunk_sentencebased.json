@@ -1,0 +1,3002 @@
+[
+	{
+		"doc_id": "hermes",
+		"chunk_id": 0,
+		"text": "<p align=\"center\">\n  <img src=\"assets/banner.png\" alt=\"Hermes Agent\" width=\"100%\">\n</p>\n\n# Hermes Agent \u2624\n<p align=\"center\">\n  <a href=\"https://hermes-agent.nousresearch.com/\">Hermes Agent</a> | <a href=\"https://hermes-agent.nousresearch.com/\">Hermes Desktop</a>\n</p>\n<p align=\"center\">\n  <a href=\"https://hermes-agent.nousresearch.com/docs/\"><img src=\"https://img.shields.io/badge/Docs-hermes--agent.nousresearch.com-FFD700?style=for-the-badge\" alt=\"Documentation\"></a>\n  <a href=\"https://discord.gg/NousResearch\"><img src=\"https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white\" alt=\"Discord\"></a>\n  <a href=\"https://github.com/NousResearch/hermes-agent/blob/main/LICENSE\"><img src=\"https://img.shields.io/badge/License-MIT-green?style=for-the-badge\" alt=\"License: MIT\"></a>\n  <a href=\"https://nousresearch.com\"><img src=\"https://img.shields.io/badge/Built%20by-Nous%20Research-blueviolet?style=for-the-badge\" alt=\"Built by Nous Research\"></a>\n  <a href=\"README.zh-CN.md\"><img src=\"https://img.shields.io/badge/Lang-\u4e2d\u6587-red?style=for-the-badge\" alt=\"\u4e2d\u6587\"></a>\n  <a href=\"README.ur-pk.md\"><img src=\"https://img.shields.io/badge/Lang-\u0627\u0631\u062f\u0648-green?style=for-the-badge\" alt=\"\u0627\u0631\u062f\u0648\"></a>\n  <a href=\"README.es.md\"><img src=\"https://img.shields.io/badge/Lang-Espa\u00f1ol-orange?style=for-the-badge\" alt=\"Espa\u00f1ol\"></a>\n</p>\n\n**The self-improving AI agent built by [Nous Research](https://nousresearch.com)."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 1,
+		"text": "** It's the only agent with a built-in learning loop \u2014 it creates skills from experience, improves them during use, nudges itself to persist knowledge, searches its own past conversations, and builds a deepening model of who you are across sessions."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 2,
+		"text": "Run it on a $5 VPS, a GPU cluster, or serverless infrastructure that costs nearly nothing when idle."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 3,
+		"text": "It's not tied to your laptop \u2014 talk to it from Telegram while it works on a cloud VM."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 4,
+		"text": "Use any model you want \u2014 [Nous Portal](https://portal.nousresearch.com), OpenRouter, OpenAI, your own endpoint, and [many others](https://hermes-agent.nousresearch.com/docs/integrations/providers)."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 5,
+		"text": "Switch with `hermes model` \u2014 no code changes, no lock-in."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 6,
+		"text": "<table>\n<tr><td><b>A real terminal interface</b></td><td>Full TUI with multiline editing, slash-command autocomplete, conversation history, interrupt-and-redirect, and streaming tool output.</td></tr>\n<tr><td><b>Lives where you do</b></td><td>Telegram, Discord, Slack, WhatsApp, Signal, and CLI \u2014 all from a single gateway process."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 7,
+		"text": "Voice memo transcription, cross-platform conversation continuity.</td></tr>\n<tr><td><b>A closed learning loop</b></td><td>Agent-curated memory with periodic nudges."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 8,
+		"text": "Autonomous skill creation after complex tasks."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 9,
+		"text": "Skills self-improve during use."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 10,
+		"text": "FTS5 session search with LLM summarization for cross-session recall."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 11,
+		"text": "<a href=\"https://github.com/plastic-labs/honcho\">Honcho</a> dialectic user modeling."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 12,
+		"text": "Compatible with the <a href=\"https://agentskills.io\">agentskills.io</a> open standard.</td></tr>\n<tr><td><b>Scheduled automations</b></td><td>Built-in cron scheduler with delivery to any platform."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 13,
+		"text": "Daily reports, nightly backups, weekly audits \u2014 all in natural language, running unattended.</td></tr>\n<tr><td><b>Delegates and parallelizes</b></td><td>Spawn isolated subagents for parallel workstreams."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 14,
+		"text": "Write Python scripts that call tools via RPC, collapsing multi-step pipelines into zero-context-cost turns.</td></tr>\n<tr><td><b>Runs anywhere, not just your laptop</b></td><td>Seven terminal backends \u2014 local, Docker, SSH, Singularity, Modal, Daytona, and Vercel Sandbox."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 15,
+		"text": "Daytona and Modal offer serverless persistence \u2014 your agent's environment hibernates when idle and wakes on demand, costing nearly nothing between sessions."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 16,
+		"text": "Run it on a $5 VPS or a GPU cluster.</td></tr>\n<tr><td><b>Research-ready</b></td><td>Batch trajectory generation, trajectory compression for training the next generation of tool-calling models.</td></tr>\n</table>\n\n---\n\n## Quick Install\n\n### Linux, macOS, WSL2, Termux\n\n```bash\ncurl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash\n```\n\n### Windows (native, PowerShell)\n\n> **Heads up:** Native Windows runs Hermes without WSL \u2014 CLI, gateway, TUI, and tools all work natively."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 17,
+		"text": "If you'd rather use WSL2, the Linux/macOS one-liner above works there too."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 18,
+		"text": "Found a bug?"
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 19,
+		"text": "Please [file issues](https://github.com/NousResearch/hermes-agent/issues)."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 20,
+		"text": "Run this in PowerShell:\n\n```powershell\niex (irm https://hermes-agent.nousresearch.com/install.ps1)\n```\n\nThe installer handles everything: uv, Python 3.11, Node.js, ripgrep, ffmpeg, **and a portable Git Bash** (MinGit, unpacked to `%LOCALAPPDATA%\\hermes\\git` \u2014 no admin required, completely isolated from any system Git install)."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 21,
+		"text": "Hermes uses this bundled Git Bash to run shell commands."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 22,
+		"text": "If you already have Git installed, the installer detects it and uses that instead."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 23,
+		"text": "Otherwise a ~45MB MinGit download is all you need \u2014 it won't touch or interfere with any system Git."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 24,
+		"text": "> **Android / Termux:** The tested manual path is documented in the [Termux guide](https://hermes-agent.nousresearch.com/docs/getting-started/termux)."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 25,
+		"text": "On Termux, Hermes installs a curated `."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 26,
+		"text": "[termux]` extra because the full `."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 27,
+		"text": "[all]` extra currently pulls Android-incompatible voice dependencies."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 28,
+		"text": ">\n> **Windows:** Native Windows is fully supported \u2014 the PowerShell one-liner above installs everything."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 29,
+		"text": "If you'd rather use WSL2, the Linux command works there too."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 30,
+		"text": "Native Windows install lives under `%LOCALAPPDATA%\\hermes`; WSL2 installs under `~/.hermes` as on Linux."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 31,
+		"text": "After installation:\n\n```bash\nsource ~/.bashrc    # reload shell (or: source ~/.zshrc)\nhermes              # start chatting!"
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 32,
+		"text": "```\n\n### Troubleshooting\n\n#### Windows Defender or antivirus flags `uv.exe` as malware\n\nIf your antivirus (Bitdefender, Windows Defender, etc.)"
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 33,
+		"text": "quarantines `uv.exe` from the Hermes `bin` folder (`%LOCALAPPDATA%\\hermes\\bin\\uv.exe`), this is a **false positive**."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 34,
+		"text": "The file is Astral's `uv` \u2014 the Rust Python package manager Hermes bundles to manage its Python environment."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 35,
+		"text": "ML-based antivirus engines commonly flag unsigned Rust binaries that download and install packages."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 36,
+		"text": "**To verify your copy is authentic:**\n\n```powershell\n# Install GitHub CLI if needed\nwinget install --id GitHub.cli\n\n# Login to GitHub\ngh auth login\n\n# Run verification\n$uv = \"$env:LOCALAPPDATA\\hermes\\bin\\uv.exe\"\n$ver = (& $uv --version).Split(' ')[1]\n[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12\n$zip = \"$env:TEMP\\uv.zip\"\nInvoke-WebRequest \"https://github.com/astral-sh/uv/releases/download/$ver/uv-x86_64-pc-windows-msvc.zip\" -OutFile $zip -UseBasicParsing\ngh attestation verify $zip --repo astral-sh/uv\nExpand-Archive $zip \"$env:TEMP\\uv_x\" -Force\n(Get-FileHash \"$env:TEMP\\uv_x\\uv.exe\").Hash -eq (Get-FileHash $uv).Hash\n```\n\nIf attestation says \"Verification succeeded\" and the last line prints `True`, you're good."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 37,
+		"text": "**To whitelist Hermes:**\n- **Windows Defender:** Run PowerShell as Admin \u2192 `Add-MpPreference -ExclusionPath \"$env:LOCALAPPDATA\\hermes\\bin\"`\n- **Bitdefender:** Add an exception in the Bitdefender console (Protection > Antivirus > Settings > Manage Exceptions)\n- Whitelist the **folder**, not the file hash \u2014 Hermes updates `uv` and the hash changes every version\n\nFor more context, see the upstream Astral reports: [astral-sh/uv#13553](https://github.com/astral-sh/uv/issues/13553), [astral-sh/uv#15011](https://github.com/astral-sh/uv/issues/15011), [astral-sh/uv#10079](https://github.com/astral-sh/uv/issues/10079)."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 38,
+		"text": "---\n\n## Getting Started\n\n```bash\nhermes              # Interactive CLI \u2014 start a conversation\nhermes model        # Choose your LLM provider and model\nhermes tools        # Configure which tools are enabled\nhermes config set   # Set individual config values\nhermes config get   # Print individual config values\nhermes gateway      # Start the messaging gateway (Telegram, Discord, etc.)"
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 39,
+		"text": "hermes setup        # Run the full setup wizard (configures everything at once)\nhermes claw migrate # Migrate from OpenClaw (if coming from OpenClaw)\nhermes update       # Update to the latest version\nhermes doctor       # Diagnose any issues\n```\n\n\ud83d\udcd6 **[Full documentation \u2192](https://hermes-agent.nousresearch.com/docs/)**\n\n---\n\n## Skip the API-key collection \u2014 Nous Portal\n\nHermes works with whatever provider you want \u2014 that's not changing."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 40,
+		"text": "But if you'd rather not collect five separate API keys for the model, web search, image generation, TTS, and a cloud browser, **[Nous Portal](https://portal.nousresearch.com)** covers all of them under one subscription:\n\n- **300+ models** \u2014 pick any of them with `/model <name>`\n- **Tool Gateway** \u2014 web search (Firecrawl), image generation (FAL), text-to-speech (OpenAI), cloud browser (Browser Use), all routed through your sub."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 41,
+		"text": "No extra accounts."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 42,
+		"text": "One command from a fresh install:\n\n```bash\nhermes setup --portal\n```\n\nThat logs you in via OAuth, sets Nous as your provider, and turns on the Tool Gateway."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 43,
+		"text": "Check what's wired up any time with `hermes portal info`."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 44,
+		"text": "Full details on the [Tool Gateway docs page](https://hermes-agent.nousresearch.com/docs/user-guide/features/tool-gateway)."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 45,
+		"text": "You can still bring your own keys per-tool whenever you want \u2014 the gateway is per-backend, not all-or-nothing."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 46,
+		"text": "---\n\n## CLI vs Messaging Quick Reference\n\nHermes has two entry points: start the terminal UI with `hermes`, or run the gateway and talk to it from Telegram, Discord, Slack, WhatsApp, Signal, or Email."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 47,
+		"text": "Once you're in a conversation, many slash commands are shared across both interfaces."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 48,
+		"text": "| Action                         | CLI                                           | Messaging platforms                                                              |\n| ------------------------------ | --------------------------------------------- | -------------------------------------------------------------------------------- |\n| Start chatting                 | `hermes`                                      | Run `hermes gateway setup` + `hermes gateway start`, then send the bot a message |\n| Start fresh conversation       | `/new` or `/reset`                            | `/new` or `/reset`                                                               |\n| Change model                   | `/model [provider:model]`                     | `/model [provider:model]`                                                        |\n| Set a personality              | `/personality [name]`                         | `/personality [name]`                                                            |\n| Retry or undo the last turn    | `/retry`, `/undo`                             | `/retry`, `/undo`                                                                |\n| Compress context / check usage | `/compress`, `/usage`, `/insights [--days N]` | `/compress`, `/usage`, `/insights [days]`                                        |\n| Browse skills                  | `/skills` or `/<skill-name>`                  | `/<skill-name>`                                                                  |\n| Interrupt current work         | `Ctrl+C` or send a new message                | `/stop` or send a new message                                                    |\n| Platform-specific status       | `/platforms`                                  | `/status`, `/sethome`                                                            |\n\nFor the full command lists, see the [CLI guide](https://hermes-agent.nousresearch.com/docs/user-guide/cli) and the [Messaging Gateway guide](https://hermes-agent.nousresearch.com/docs/user-guide/messaging)."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 49,
+		"text": "---\n\n## Documentation\n\nAll documentation lives at **[hermes-agent.nousresearch.com/docs](https://hermes-agent.nousresearch.com/docs/)**:\n\n| Section                                                                                             | What's Covered                                             |\n| --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |\n| [Quickstart](https://hermes-agent.nousresearch.com/docs/getting-started/quickstart)                 | Install \u2192 setup \u2192 first conversation in 2 minutes          |\n| [CLI Usage](https://hermes-agent.nousresearch.com/docs/user-guide/cli)                              | Commands, keybindings, personalities, sessions             |\n| [Configuration](https://hermes-agent.nousresearch.com/docs/user-guide/configuration)                | Config file, providers, models, all options                |\n| [Messaging Gateway](https://hermes-agent.nousresearch.com/docs/user-guide/messaging)                | Telegram, Discord, Slack, WhatsApp, Signal, Home Assistant |\n| [Security](https://hermes-agent.nousresearch.com/docs/user-guide/security)                          | Command approval, DM pairing, container isolation          |\n| [Tools & Toolsets](https://hermes-agent.nousresearch.com/docs/user-guide/features/tools)            | 40+ tools, toolset system, terminal backends               |\n| [Skills System](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills)              | Procedural memory, Skills Hub, creating skills             |\n| [Memory](https://hermes-agent.nousresearch.com/docs/user-guide/features/memory)                     | Persistent memory, user profiles, best practices           |\n| [MCP Integration](https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp)               | Connect any MCP server for extended capabilities           |\n| [Cron Scheduling](https://hermes-agent.nousresearch.com/docs/user-guide/features/cron)              | Scheduled tasks with platform delivery                     |\n| [Context Files](https://hermes-agent.nousresearch.com/docs/user-guide/features/context-files)       | Project context that shapes every conversation             |\n| [Architecture](https://hermes-agent.nousresearch.com/docs/developer-guide/architecture)             | Project structure, agent loop, key classes                 |\n| [Contributing](https://hermes-agent.nousresearch.com/docs/developer-guide/contributing)             | Development setup, PR process, code style                  |\n| [CLI Reference](https://hermes-agent.nousresearch.com/docs/reference/cli-commands)                  | All commands and flags                                     |\n| [Environment Variables](https://hermes-agent.nousresearch.com/docs/reference/environment-variables) | Complete env var reference                                 |\n\n---\n\n## Migrating from OpenClaw\n\nIf you're coming from OpenClaw, Hermes can automatically import your settings, memories, skills, and API keys."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 50,
+		"text": "**During first-time setup:** The setup wizard (`hermes setup`) automatically detects `~/.openclaw` and offers to migrate before configuration begins."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 51,
+		"text": "**Anytime after install:**\n\n```bash\nhermes claw migrate              # Interactive migration (full preset)\nhermes claw migrate --dry-run    # Preview what would be migrated\nhermes claw migrate --preset user-data   # Migrate without secrets\nhermes claw migrate --overwrite  # Overwrite existing conflicts\n```\n\nWhat gets imported:\n\n- **SOUL.md** \u2014 persona file\n- **Memories** \u2014 MEMORY.md and USER.md entries\n- **Skills** \u2014 user-created skills \u2192 `~/.hermes/skills/openclaw-imports/`\n- **Command allowlist** \u2014 approval patterns\n- **Messaging settings** \u2014 platform configs, allowed users, working directory\n- **API keys** \u2014 allowlisted secrets (Telegram, OpenRouter, OpenAI, Anthropic, ElevenLabs)\n- **TTS assets** \u2014 workspace audio files\n- **Workspace instructions** \u2014 AGENTS.md (with `--workspace-target`)\n\nSee `hermes claw migrate --help` for all options, or use the `openclaw-migration` skill for an interactive agent-guided migration with dry-run previews."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 52,
+		"text": "---\n\n## Contributing\n\nWe welcome contributions!"
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 53,
+		"text": "See the [Contributing Guide](https://hermes-agent.nousresearch.com/docs/developer-guide/contributing) for development setup, code style, and PR process."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 54,
+		"text": "Quick start for contributors \u2014 use the standard installer, then work from the\nfull git checkout it creates at `$HERMES_HOME/hermes-agent` (usually\n`~/.hermes/hermes-agent`)."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 55,
+		"text": "This matches the layout used by `hermes update`, the\nmanaged venv, lazy dependencies, gateway, and docs tooling."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 56,
+		"text": "```bash\ncurl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash\ncd \"${HERMES_HOME:-$HOME/.hermes}/hermes-agent\"\nuv pip install -e \"."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 57,
+		"text": "[all,dev]\"\nscripts/run_tests.sh\n```\n\nManual clone fallback (for throwaway clones/CI where you intentionally do not\nwant the managed install layout):\n\nCreate the venv outside the cloned source tree \u2014 a venv inside the directory\nthe agent operates from can be wiped by a relative-path command the agent runs\nagainst its own checkout, destroying the running runtime mid-session."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 58,
+		"text": "```bash\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nuv venv ~/.hermes/venvs/hermes-dev --python 3.11\nsource ~/.hermes/venvs/hermes-dev/bin/activate\nuv pip install -e \"."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 59,
+		"text": "[all,dev]\"\nscripts/run_tests.sh\n```\n\n---\n\n## Community\n\n- \ud83d\udcac [Discord](https://discord.gg/NousResearch)\n- \ud83d\udcda [Skills Hub](https://agentskills.io)\n- \ud83d\udc1b [Issues](https://github.com/NousResearch/hermes-agent/issues)\n- \ud83d\udd0c [computer-use-linux](https://github.com/avifenesh/computer-use-linux) \u2014 Linux desktop-control MCP server for Hermes and other MCP hosts, with AT-SPI accessibility trees, Wayland/X11 input, screenshots, and compositor window targeting."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 60,
+		"text": "- \ud83d\udd0c [HermesClaw](https://github.com/AaronWong1999/hermesclaw) \u2014 Community WeChat bridge: Run Hermes Agent and OpenClaw on the same WeChat account."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 61,
+		"text": "---\n\n## License\n\nMIT \u2014 see [LICENSE](LICENSE)."
+	},
+	{
+		"doc_id": "hermes",
+		"chunk_id": 62,
+		"text": "Built by [Nous Research](https://nousresearch.com)."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 0,
+		"text": "# Keras 3: Deep Learning for Humans\n\nKeras 3 is a multi-backend deep learning framework, with support for JAX, TensorFlow, PyTorch, and OpenVINO (for inference-only)."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 1,
+		"text": "Effortlessly build and train models for computer vision, natural language processing, audio processing,\ntimeseries forecasting, recommender systems, etc."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 2,
+		"text": "- **Accelerated model development**: Ship deep learning solutions faster thanks to the high-level UX of Keras\nand the availability of easy-to-debug runtimes like PyTorch or JAX eager execution."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 3,
+		"text": "- **State-of-the-art performance**: By picking the backend that is the fastest for your model architecture (often JAX!"
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 4,
+		"text": "),\nleverage speedups ranging from 20% to 350% compared to other frameworks."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 5,
+		"text": "[Benchmark here](https://keras.io/getting_started/benchmarks/)."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 6,
+		"text": "- **Datacenter-scale training**: Scale confidently from your laptop to large clusters of GPUs or TPUs."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 7,
+		"text": "Join nearly three million developers, from burgeoning startups to global enterprises, in harnessing the power of Keras 3."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 8,
+		"text": "## Installation\n\n### Install with pip\n\nKeras 3 is available on PyPI as `keras`."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 9,
+		"text": "Note that Keras 2 remains available as the `tf-keras` package."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 10,
+		"text": "1."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 11,
+		"text": "Install `keras`:\n\n```\npip install keras --upgrade\n```\n\n2."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 12,
+		"text": "Install backend package(s)."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 13,
+		"text": "To use `keras`, you should also install the backend of choice: `tensorflow`, `jax`, or `torch`."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 14,
+		"text": "Additionally,\nThe `openvino` backend is available with support for model inference only."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 15,
+		"text": "### Local installation\n\n#### Minimal installation\n\nKeras 3 is compatible with Linux and macOS systems."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 16,
+		"text": "For Windows users, we recommend using WSL2 to run Keras."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 17,
+		"text": "To install a local development version:\n\n1."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 18,
+		"text": "Install dependencies:\n\n```\npip install -r requirements.txt\n```\n\n2."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 19,
+		"text": "Run installation command from the root directory."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 20,
+		"text": "```\npython pip_build.py --install\n```\n\n3."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 21,
+		"text": "Run API generation script when creating PRs that update `keras_export` public APIs:\n\n```\n./shell/api_gen.sh\n```\n\n## Backend Compatibility Table\n\nThe following table lists the minimum supported versions of each backend for the latest stable release of Keras (v3.x):\n\n| Backend    | Minimum Supported Version |\n|------------|---------------------------|\n| TensorFlow | 2.16.1                    |\n| JAX        | 0.4.20                    |\n| PyTorch    | 2.1.0                     |\n| OpenVINO   | 2026.2.0                  |\n\n#### Adding GPU support\n\nThe `requirements.txt` file will install a CPU-only version of TensorFlow, JAX, and PyTorch."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 22,
+		"text": "For GPU support, we also\nprovide a separate `requirements-{backend}-cuda.txt` for TensorFlow, JAX, and PyTorch."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 23,
+		"text": "These install all CUDA\ndependencies via `pip` and expect a NVIDIA driver to be pre-installed."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 24,
+		"text": "We recommend a clean Python environment for each\nbackend to avoid CUDA version mismatches."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 25,
+		"text": "As an example, here is how to create a JAX GPU environment with `conda`:\n\n```shell\nconda create -y -n keras-jax python=3.10\nconda activate keras-jax\npip install -r requirements-jax-cuda.txt\npython pip_build.py --install\n```\n\n## Configuring your backend\n\nYou can export the environment variable `KERAS_BACKEND` or you can edit your local config file at `~/.keras/keras.json`\nto configure your backend."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 26,
+		"text": "Available backend options are: `\"tensorflow\"`, `\"jax\"`, `\"torch\"`, `\"openvino\"`."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 27,
+		"text": "Example:\n\n```\nexport KERAS_BACKEND=\"jax\"\n```\n\nIn Colab, you can do:\n\n```python\nimport os\nos.environ[\"KERAS_BACKEND\"] = \"jax\"\n\nimport keras\n```\n\n**Note:** The backend must be configured before importing `keras`, and the backend cannot be changed after\nthe package has been imported."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 28,
+		"text": "**Note:** The OpenVINO backend is an inference-only backend, meaning it is designed only for running model\npredictions using `model.predict()` method."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 29,
+		"text": "## Backwards compatibility\n\nKeras 3 is intended to work as a drop-in replacement for `tf.keras` (when using the TensorFlow backend)."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 30,
+		"text": "Just take your\nexisting `tf.keras` code, make sure that your calls to `model.save()` are using the up-to-date `.keras` format, and you're\ndone."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 31,
+		"text": "If your `tf.keras` model does not include custom components, you can start running it on top of JAX or PyTorch immediately."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 32,
+		"text": "If it does include custom components (e.g."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 33,
+		"text": "custom layers or a custom `train_step()`), it is usually possible to convert it\nto a backend-agnostic implementation in just a few minutes."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 34,
+		"text": "In addition, Keras models can consume datasets in any format, regardless of the backend you're using:\nyou can train your models with your existing `tf.data.Dataset` pipelines or PyTorch `DataLoaders`."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 35,
+		"text": "## Why use Keras 3?"
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 36,
+		"text": "- Run your high-level Keras workflows on top of any framework -- benefiting at will from the advantages of each framework,\ne.g."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 37,
+		"text": "the scalability and performance of JAX or the production ecosystem options of TensorFlow."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 38,
+		"text": "- Write custom components (e.g."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 39,
+		"text": "layers, models, metrics) that you can use in low-level workflows in any framework."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 40,
+		"text": "- You can take a Keras model and train it in a training loop written from scratch in native TF, JAX, or PyTorch."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 41,
+		"text": "- You can take a Keras model and use it as part of a PyTorch-native `Module` or as part of a JAX-native model function."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 42,
+		"text": "- Make your ML code future-proof by avoiding framework lock-in."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 43,
+		"text": "- As a PyTorch user: get access to power and usability of Keras, at last!"
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 44,
+		"text": "- As a JAX user: get access to a fully-featured, battle-tested, well-documented modeling and training library."
+	},
+	{
+		"doc_id": "keras",
+		"chunk_id": 45,
+		"text": "Read more in the [Keras 3 release announcement](https://keras.io/keras_3/)."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 0,
+		"text": "# Kubernetes (K8s)\n\n[!"
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 1,
+		"text": "[CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/569/badge)](https://bestpractices.coreinfrastructure.org/projects/569) [!"
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 2,
+		"text": "[Go Report Card](https://goreportcard.com/badge/github.com/kubernetes/kubernetes)](https://goreportcard.com/report/github.com/kubernetes/kubernetes) !"
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 3,
+		"text": "[GitHub release (latest SemVer)](https://img.shields.io/github/v/release/kubernetes/kubernetes?sort=semver)\n\n<img src=\"https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png\" width=\"100\">\n\n----\n\nKubernetes, also known as K8s, is an open source system for managing [containerized applications]\nacross multiple hosts."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 4,
+		"text": "It provides basic mechanisms for the deployment, maintenance,\nand scaling of applications."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 5,
+		"text": "Kubernetes builds upon a decade and a half of experience at Google running\nproduction workloads at scale using a system called [Borg],\ncombined with best-of-breed ideas and practices from the community."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 6,
+		"text": "Kubernetes is hosted by the Cloud Native Computing Foundation ([CNCF])."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 7,
+		"text": "If your company wants to help shape the evolution of\ntechnologies that are container-packaged, dynamically scheduled,\nand microservices-oriented, consider joining the CNCF."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 8,
+		"text": "For details about who's involved and how Kubernetes plays a role,\nread the CNCF [announcement]."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 9,
+		"text": "----\n\n## To start using K8s\n\nSee our documentation on [kubernetes.io]."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 10,
+		"text": "Take a free course on [Scalable Microservices with Kubernetes]."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 11,
+		"text": "To use Kubernetes code as a library in other applications, see the [list of published components](https://git.k8s.io/kubernetes/staging/README.md)."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 12,
+		"text": "Use of the `k8s.io/kubernetes` module or `k8s.io/kubernetes/...` packages as libraries is not supported."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 13,
+		"text": "## To start developing K8s\n\nThe [community repository] hosts all information about\nbuilding Kubernetes from source, how to contribute code\nand documentation, who to contact about what, etc."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 14,
+		"text": "If you want to build Kubernetes right away there are two options:\n\n##### You have a working [Go environment]."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 15,
+		"text": "```\ngit clone https://github.com/kubernetes/kubernetes\ncd kubernetes\nmake\n```\n\n##### You have a working [Docker environment]."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 16,
+		"text": "```\ngit clone https://github.com/kubernetes/kubernetes\ncd kubernetes\nmake quick-release\n```\n\nFor the full story, head over to the [developer's documentation]."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 17,
+		"text": "## Support\n\nIf you need support, start with the [troubleshooting guide],\nand work your way through the process that we've outlined."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 18,
+		"text": "That said, if you have questions, reach out to us\n[one way or another][communication]."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 19,
+		"text": "[announcement]: https://cncf.io/news/announcement/2015/07/new-cloud-native-computing-foundation-drive-alignment-among-container\n[Borg]: https://research.google.com/pubs/pub43438.html?authuser=1\n[CNCF]: https://www.cncf.io/about\n[communication]: https://git.k8s.io/community/communication\n[community repository]: https://git.k8s.io/community\n[containerized applications]: https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/\n[developer's documentation]: https://git.k8s.io/community/contributors/devel#readme\n[Docker environment]: https://docs.docker.com/engine\n[Go environment]: https://go.dev/doc/install\n[kubernetes.io]: https://kubernetes.io\n[Scalable Microservices with Kubernetes]: https://www.udacity.com/course/scalable-microservices-with-kubernetes--ud615\n[troubleshooting guide]: https://kubernetes.io/docs/tasks/debug/\n\n## Community Meetings \n\nThe [Calendar](https://www.kubernetes.dev/resources/calendar/) has the list of all the meetings in the Kubernetes community in a single location."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 20,
+		"text": "## Adopters\n\nThe [User Case Studies](https://kubernetes.io/case-studies/) website has real-world use cases of organizations across industries that are deploying/migrating to Kubernetes."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 21,
+		"text": "## Governance \n\nKubernetes project is governed by a framework of principles, values, policies and processes to help our community and constituents towards our shared goals."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 22,
+		"text": "The [Kubernetes Community](https://github.com/kubernetes/community/blob/master/governance.md) is the launching point for learning about how we organize ourselves."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 23,
+		"text": "The [Kubernetes Steering community repo](https://github.com/kubernetes/steering) is used by the Kubernetes Steering Committee, which oversees governance of the Kubernetes project."
+	},
+	{
+		"doc_id": "kubernetes",
+		"chunk_id": 24,
+		"text": "## Roadmap \n\nThe [Kubernetes Enhancements repo](https://github.com/kubernetes/enhancements) provides information about Kubernetes releases, as well as feature tracking and backlogs."
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 0,
+		"text": "<div align=\"center\">\n  <a href=\"https://docs.langchain.com/oss/python/langchain/overview\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\".github/images/logo-dark.svg\">\n      <source media=\"(prefers-color-scheme: light)\" srcset=\".github/images/logo-light.svg\">\n      <img alt=\"LangChain Logo\" src=\".github/images/logo-dark.svg\" width=\"50%\">\n    </picture>\n  </a>\n</div>\n\n<div align=\"center\">\n  <h3>The agent engineering platform.</h3>\n</div>\n\n<div align=\"center\">\n  <a href=\"https://opensource.org/licenses/MIT\" target=\"_blank\"><img src=\"https://img.shields.io/pypi/l/langchain\" alt=\"PyPI - License\"></a>\n  <a href=\"https://pypistats.org/packages/langchain\" target=\"_blank\"><img src=\"https://img.shields.io/pepy/dt/langchain\" alt=\"PyPI - Downloads\"></a>\n  <a href=\"https://pypi.org/project/langchain/#history\" target=\"_blank\"><img src=\"https://img.shields.io/pypi/v/langchain?label=%20\" alt=\"Version\"></a>\n  <a href=\"https://x.com/langchain_oss\" target=\"_blank\"><img src=\"https://img.shields.io/twitter/url/https/twitter.com/langchain_oss.svg?style=social&label=Follow%20%40LangChain\" alt=\"Twitter / X\"></a>\n</div>\n\n<br>\n\nLangChain is a framework for building agents and LLM-powered applications."
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 1,
+		"text": "It helps you chain together interoperable components and third-party integrations to simplify AI application development \u2014 all while future-proofing decisions as the underlying technology evolves."
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 2,
+		"text": "> [!TIP]\n> Just getting started?"
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 3,
+		"text": "Check out **[Deep Agents](http://docs.langchain.com/oss/python/deepagents/)** \u2014 a higher-level package built on LangChain for agents that have built-in capabilites for common usage patterns such as planning, subagents, file system usage, and more."
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 4,
+		"text": "## Quickstart\n\n```bash\nuv add langchain\n```\n\n```python\nfrom langchain.chat_models import init_chat_model\n\nmodel = init_chat_model(\"openai:gpt-5.5\")\nresult = model.invoke(\"Hello, world!\")"
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 5,
+		"text": "```\n\nIf you're looking for more advanced customization or agent orchestration, check out [LangGraph](https://github.com/langchain-ai/langgraph), our framework for building controllable agent workflows."
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 6,
+		"text": "For an equivalent JS/TS library, check out [LangChain.js](https://github.com/langchain-ai/langchainjs)."
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 7,
+		"text": "> [!TIP]\n> For developing, debugging, and deploying AI agents and LLM applications, see [LangSmith](https://docs.langchain.com/langsmith/home)."
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 8,
+		"text": "## LangChain ecosystem\n\nWhile the LangChain framework can be used standalone, it also integrates seamlessly with any LangChain product, giving developers a full suite of tools when building LLM applications."
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 9,
+		"text": "- **[Deep Agents](http://docs.langchain.com/oss/python/deepagents/)** \u2014 Build agents that can plan, use subagents, and leverage file systems for complex tasks\n- **[LangGraph](https://docs.langchain.com/oss/python/langgraph/overview)** \u2014 Build agents that can reliably handle complex tasks with our low-level agent orchestration framework\n- **[Integrations](https://docs.langchain.com/oss/python/integrations/providers/overview)** \u2014 Chat & embedding models, tools & toolkits, and more\n- **[LangSmith](https://www.langchain.com/langsmith)** \u2014 Agent evals, observability, and debugging for LLM apps\n- **[LangSmith Deployment](https://docs.langchain.com/langsmith/deployments)** \u2014 Deploy and scale agents with a purpose-built platform for long-running, stateful workflows\n\n## Why use LangChain?"
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 10,
+		"text": "LangChain helps developers build applications powered by LLMs through a standard interface for models, embeddings, vector stores, and more."
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 11,
+		"text": "- **Real-time data augmentation** \u2014 Easily connect LLMs to diverse data sources and external/internal systems, drawing from LangChain's vast library of integrations with model providers, tools, vector stores, retrievers, and more\n- **Model interoperability** \u2014 Swap models in and out as your engineering team experiments to find the best choice for your application's needs."
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 12,
+		"text": "As the industry frontier evolves, adapt quickly \u2014 LangChain's abstractions keep you moving without losing momentum\n- **Rapid prototyping** \u2014 Quickly build and iterate on LLM applications with LangChain's modular, component-based architecture."
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 13,
+		"text": "Test different approaches and workflows without rebuilding from scratch, accelerating your development cycle\n- **Production-ready features** \u2014 Deploy reliable applications with built-in support for monitoring, evaluation, and debugging through integrations like LangSmith."
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 14,
+		"text": "Scale with confidence using battle-tested patterns and best practices\n- **Vibrant community and ecosystem** \u2014 Leverage a rich ecosystem of integrations, templates, and community-contributed components."
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 15,
+		"text": "Benefit from continuous improvements and stay up-to-date with the latest AI developments through an active open-source community\n- **Flexible abstraction layers** \u2014 Work at the level of abstraction that suits your needs \u2014 from high-level chains for quick starts to low-level components for fine-grained control."
+	},
+	{
+		"doc_id": "langchain",
+		"chunk_id": 16,
+		"text": "LangChain grows with your application's complexity\n\n---\n\n## Resources\n\n- [Documentation](https://docs.langchain.com/oss/python/langchain/overview) \u2014 conceptual overviews and guides\n- [LangChain ecosystem overview](https://docs.langchain.com/oss/python/concepts/products) \u2014 how LangChain, LangGraph, and Deep Agents fit together\n- [API reference](https://reference.langchain.com/python) \u2014 complete reference for all public classes, functions, and types\n- [Discussions](https://forum.langchain.com/c/oss-product-help-lc-and-lg/langchain/14) \u2014 community forum for technical questions, ideas, and feedback\n- [LangChain Academy](https://academy.langchain.com/) \u2014 comprehensive, free courses on LangChain libraries and products, made by the LangChain team\n- [Contributing Guide](https://docs.langchain.com/oss/python/contributing/overview) \u2014 how to contribute and find good first issues\n- [Code of Conduct](https://github.com/langchain-ai/langchain/?tab=coc-ov-file) \u2014 community guidelines and standards"
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 0,
+		"text": "<div align=\"center\">\n  <a href=\"https://www.langchain.com/langgraph\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\".github/images/logo-dark.svg\">\n      <source media=\"(prefers-color-scheme: light)\" srcset=\".github/images/logo-light.svg\">\n      <img alt=\"LangGraph Logo\" src=\".github/images/logo-dark.svg\" width=\"50%\">\n    </picture>\n  </a>\n</div>\n\n<div align=\"center\">\n  <h3>Low-level orchestration framework for building stateful agents.</h3>\n</div>\n\n<div align=\"center\">\n  <a href=\"https://opensource.org/licenses/MIT\" target=\"_blank\"><img src=\"https://img.shields.io/pypi/l/langgraph\" alt=\"PyPI - License\"></a>\n  <a href=\"https://pypistats.org/packages/langgraph\" target=\"_blank\"><img src=\"https://img.shields.io/pepy/dt/langgraph\" alt=\"PyPI - Downloads\"></a>\n  <a href=\"https://pypi.org/project/langgraph/\" target=\"_blank\"><img src=\"https://img.shields.io/pypi/v/langgraph.svg?label=%20\" alt=\"Version\"></a>\n  <a href=\"https://x.com/langchain_oss\" target=\"_blank\"><img src=\"https://img.shields.io/twitter/url/https/twitter.com/langchain_oss.svg?style=social&label=Follow%20%40LangChain\" alt=\"Twitter / X\"></a>\n</div>\n\n<br>\n\nTrusted by companies shaping the future of agents \u2013 including Klarna, Replit, Elastic, and more \u2013 LangGraph is a low-level orchestration framework for building, managing, and deploying long-running, stateful agents."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 1,
+		"text": "```bash\npip install -U langgraph\n```\n\n> [!TIP]\n> If you're looking to quickly build agents, check out **[Deep Agents](https://docs.langchain.com/oss/python/deepagents/overview)** \u2014 a higher-level package built on LangGraph for agents that can plan, use subagents, and leverage file systems for complex tasks."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 2,
+		"text": "For an equivalent JS/TS library, check out [LangGraph.js](https://github.com/langchain-ai/langgraphjs) and the [JS docs](https://docs.langchain.com/oss/javascript/langgraph/overview)."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 3,
+		"text": "## Why use LangGraph?"
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 4,
+		"text": "LangGraph provides low-level supporting infrastructure for *any* long-running, stateful workflow or agent:\n\n- **[Durable execution](https://docs.langchain.com/oss/python/langgraph/durable-execution)** \u2014 Build agents that persist through failures and can run for extended periods, automatically resuming from exactly where they left off."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 5,
+		"text": "- **[Human-in-the-loop](https://docs.langchain.com/oss/python/langgraph/interrupts)** \u2014 Seamlessly incorporate human oversight by inspecting and modifying agent state at any point during execution."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 6,
+		"text": "- **[Comprehensive memory](https://docs.langchain.com/oss/python/langgraph/memory)** \u2014 Create truly stateful agents with both short-term working memory for ongoing reasoning and long-term persistent memory across sessions."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 7,
+		"text": "- **[Debugging with LangSmith](https://www.langchain.com/langsmith)** \u2014 Gain deep visibility into complex agent behavior with visualization tools that trace execution paths, capture state transitions, and provide detailed runtime metrics."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 8,
+		"text": "- **[Production-ready deployment](https://docs.langchain.com/langsmith/deployments)** \u2014 Deploy sophisticated agent systems confidently with scalable infrastructure designed to handle the unique challenges of stateful, long-running workflows."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 9,
+		"text": "> [!TIP]\n> For developing, debugging, and deploying AI agents and LLM applications, see [LangSmith](https://docs.langchain.com/langsmith/home)."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 10,
+		"text": "## LangGraph ecosystem\n\nWhile LangGraph can be used standalone, it also integrates seamlessly with any LangChain product, giving developers a full suite of tools for building agents."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 11,
+		"text": "To improve your LLM application development, pair LangGraph with:\n\n- [Deep Agents](https://docs.langchain.com/oss/python/deepagents/overview) \u2013 Build agents that can plan, use subagents, and leverage file systems for complex tasks."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 12,
+		"text": "- [LangChain](https://docs.langchain.com/oss/python/langchain/overview) \u2013 Provides integrations and composable components to streamline LLM application development."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 13,
+		"text": "- [LangSmith](https://www.langchain.com/langsmith) \u2013 Helpful for agent evals and observability."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 14,
+		"text": "Debug poor-performing LLM app runs, evaluate agent trajectories, gain visibility in production, and improve performance over time."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 15,
+		"text": "- [LangSmith Deployment](https://docs.langchain.com/langsmith/deployments) \u2013 Deploy and scale agents effortlessly with a purpose-built deployment platform for long-running, stateful workflows."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 16,
+		"text": "Discover, reuse, configure, and share agents across teams \u2013 and iterate quickly with visual prototyping in [LangSmith Studio](https://docs.langchain.com/langsmith/studio)."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 17,
+		"text": "---\n\n## Documentation\n\n- [docs.langchain.com](https://docs.langchain.com/oss/python/langgraph/overview) \u2013 Comprehensive documentation, including conceptual overviews and guides\n- [reference.langchain.com/python/langgraph](https://reference.langchain.com/python/langgraph) \u2013 API reference docs for LangGraph packages\n- [LangGraph Quickstart](https://docs.langchain.com/oss/python/langgraph/quickstart) \u2013 Get started building with LangGraph\n- [Chat LangChain](https://chat.langchain.com/) \u2013 Chat with the LangChain documentation and get answers to your questions\n\n**Discussions**: Visit the [LangChain Forum](https://forum.langchain.com) to connect with the community and share all of your technical questions, ideas, and feedback."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 18,
+		"text": "## Additional resources\n\n- **[Guides](https://docs.langchain.com/oss/python/learn)** \u2013 Quick, actionable code snippets for topics such as streaming, adding memory & persistence, and design patterns (e.g."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 19,
+		"text": "branching, subgraphs, etc.)."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 20,
+		"text": "- **[LangChain Academy](https://academy.langchain.com/courses/intro-to-langgraph)** \u2013 Learn the basics of LangGraph in our free, structured course."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 21,
+		"text": "- **[Case studies](https://www.langchain.com/built-with-langgraph)** \u2013 Hear how industry leaders use LangGraph to ship AI applications at scale."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 22,
+		"text": "- [Contributing Guide](https://docs.langchain.com/oss/python/contributing/overview) \u2013 Learn how to contribute to LangChain projects and find good first issues."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 23,
+		"text": "- [Code of Conduct](https://github.com/langchain-ai/langchain/?tab=coc-ov-file) \u2013 Our community guidelines and standards for participation."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 24,
+		"text": "---\n\n## Acknowledgements\n\nLangGraph is inspired by [Pregel](https://research.google/pubs/pub37252/) and [Apache Beam](https://beam.apache.org/)."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 25,
+		"text": "The public interface draws inspiration from [NetworkX](https://networkx.org/documentation/latest/)."
+	},
+	{
+		"doc_id": "langgraph",
+		"chunk_id": 26,
+		"text": "LangGraph is built by LangChain Inc, the creators of LangChain, but can be used without LangChain."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 0,
+		"text": "<p align=\"center\"><a href=\"https://laravel.com\" target=\"_blank\"><img src=\"https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg\" width=\"400\" alt=\"Laravel Logo\"></a></p>\n\n<p align=\"center\">\n<a href=\"https://github.com/laravel/framework/actions\"><img src=\"https://github.com/laravel/framework/workflows/tests/badge.svg\" alt=\"Build Status\"></a>\n<a href=\"https://packagist.org/packages/laravel/framework\"><img src=\"https://img.shields.io/packagist/dt/laravel/framework\" alt=\"Total Downloads\"></a>\n<a href=\"https://packagist.org/packages/laravel/framework\"><img src=\"https://img.shields.io/packagist/v/laravel/framework\" alt=\"Latest Stable Version\"></a>\n<a href=\"https://packagist.org/packages/laravel/framework\"><img src=\"https://img.shields.io/packagist/l/laravel/framework\" alt=\"License\"></a>\n</p>\n\n## About Laravel\n\nLaravel is a web application framework with expressive, elegant syntax."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 1,
+		"text": "We believe development must be an enjoyable and creative experience to be truly fulfilling."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 2,
+		"text": "Laravel takes the pain out of development by easing common tasks used in many web projects, such as:\n\n- [Simple, fast routing engine](https://laravel.com/docs/routing)."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 3,
+		"text": "- [Powerful dependency injection container](https://laravel.com/docs/container)."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 4,
+		"text": "- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 5,
+		"text": "- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent)."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 6,
+		"text": "- Database agnostic [schema migrations](https://laravel.com/docs/migrations)."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 7,
+		"text": "- [Robust background job processing](https://laravel.com/docs/queues)."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 8,
+		"text": "- [Real-time event broadcasting](https://laravel.com/docs/broadcasting)."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 9,
+		"text": "Laravel is accessible, powerful, and provides tools required for large, robust applications."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 10,
+		"text": "## Learning Laravel\n\nLaravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 11,
+		"text": "In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 12,
+		"text": "Boost your skills by digging into our comprehensive video library."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 13,
+		"text": "You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 14,
+		"text": "## Agentic Development\n\nLaravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 15,
+		"text": "Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:\n\n```bash\ncomposer require laravel/boost --dev\n\nphp artisan boost:install\n```\n\nBoost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 16,
+		"text": "## Contributing\n\nThank you for considering contributing to the Laravel framework!"
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 17,
+		"text": "The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions)."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 18,
+		"text": "## Code of Conduct\n\nIn order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct)."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 19,
+		"text": "## Security Vulnerabilities\n\nIf you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com)."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 20,
+		"text": "All security vulnerabilities will be promptly addressed."
+	},
+	{
+		"doc_id": "laravel",
+		"chunk_id": 21,
+		"text": "## License\n\nThe Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 0,
+		"text": "<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://github.com/pytorch/pytorch/raw/main/docs/source/_static/img/pytorch-logo-light.png\" />\n  <source media=\"(prefers-color-scheme: light)\" srcset=\"https://github.com/pytorch/pytorch/raw/main/docs/source/_static/img/pytorch-logo-dark.png\" />\n  <img src=\"https://github.com/pytorch/pytorch/raw/main/docs/source/_static/img/pytorch-logo-dark.png\" alt=\"PyTorch logo\" />\n</picture>\n\n--------------------------------------------------------------------------------\n\nPyTorch is a Python package that provides two high-level features:\n- Tensor computation (like NumPy) with strong GPU acceleration\n- Deep neural networks built on a tape-based autograd system\n\nYou can reuse your favorite Python packages such as NumPy, SciPy, and Cython to extend PyTorch when needed."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 1,
+		"text": "Our trunk health (Continuous Integration signals) can be found at [hud.pytorch.org](https://hud.pytorch.org/ci/pytorch/pytorch/main)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 2,
+		"text": "<!-- toc -->\n\n- [More About PyTorch](#more-about-pytorch)\n  - [A GPU-Ready Tensor Library](#a-gpu-ready-tensor-library)\n  - [Dynamic Neural Networks: Tape-Based Autograd](#dynamic-neural-networks-tape-based-autograd)\n  - [Python First](#python-first)\n  - [Imperative Experiences](#imperative-experiences)\n  - [Fast and Lean](#fast-and-lean)\n  - [Extensions Without Pain](#extensions-without-pain)\n- [Installation](#installation)\n  - [Binaries](#binaries)\n    - [NVIDIA Jetson Platforms](#nvidia-jetson-platforms)\n  - [From Source](#from-source)\n    - [Prerequisites](#prerequisites)\n      - [NVIDIA CUDA Support](#nvidia-cuda-support)\n      - [AMD ROCm Support](#amd-rocm-support)\n      - [Intel GPU Support](#intel-gpu-support)\n    - [Get the PyTorch Source](#get-the-pytorch-source)\n    - [Install Dependencies](#install-dependencies)\n    - [Install PyTorch](#install-pytorch)\n      - [Adjust Build Options (Optional)](#adjust-build-options-optional)\n  - [Docker Image](#docker-image)\n    - [Using pre-built images](#using-pre-built-images)\n    - [Building the image yourself](#building-the-image-yourself)\n  - [Building the Documentation](#building-the-documentation)\n    - [Troubleshooting CI Errors](#troubleshooting-ci-errors)\n    - [Building a PDF](#building-a-pdf)\n  - [Previous Versions](#previous-versions)\n- [Getting Started](#getting-started)\n- [Resources](#resources)\n- [Communication](#communication)\n- [Releases and Contributing](#releases-and-contributing)\n- [The Team](#the-team)\n- [License](#license)\n\n<!-- tocstop -->\n\n## More About PyTorch\n\n[Learn the basics of PyTorch](https://pytorch.org/tutorials/beginner/basics/intro.html)\n\nAt a granular level, PyTorch is a library that consists of the following components:\n\n| Component | Description |\n| ---- | --- |\n| [**torch**](https://pytorch.org/docs/stable/torch.html) | A Tensor library like NumPy, with strong GPU support |\n| [**torch.autograd**](https://pytorch.org/docs/stable/autograd.html) | A tape-based automatic differentiation library that supports all differentiable Tensor operations in torch |\n| [**torch.jit**](https://pytorch.org/docs/stable/jit.html) | A compilation stack (TorchScript) to create serializable and optimizable models from PyTorch code  |\n| [**torch.nn**](https://pytorch.org/docs/stable/nn.html) | A neural networks library deeply integrated with autograd designed for maximum flexibility |\n| [**torch.multiprocessing**](https://pytorch.org/docs/stable/multiprocessing.html) | Python multiprocessing, but with magical memory sharing of torch Tensors across processes."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 3,
+		"text": "Useful for data loading and Hogwild training |\n| [**torch.utils**](https://pytorch.org/docs/stable/data.html) | DataLoader and other utility functions for convenience |\n\nUsually, PyTorch is used either as:\n\n- A replacement for NumPy to use the power of GPUs."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 4,
+		"text": "- A deep learning research platform that provides maximum flexibility and speed."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 5,
+		"text": "Elaborating Further:\n\n### A GPU-Ready Tensor Library\n\nIf you use NumPy, then you have used Tensors (a.k.a."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 6,
+		"text": "ndarray)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 7,
+		"text": "!"
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 8,
+		"text": "[Tensor illustration](https://github.com/pytorch/pytorch/raw/main/docs/source/_static/img/tensor_illustration.png)\n\nPyTorch provides Tensors that can live either on the CPU or the GPU and accelerates the\ncomputation by a huge amount."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 9,
+		"text": "We provide a wide variety of tensor routines to accelerate and fit your scientific computation needs\nsuch as slicing, indexing, mathematical operations, linear algebra, reductions."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 10,
+		"text": "And they are fast!"
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 11,
+		"text": "### Dynamic Neural Networks: Tape-Based Autograd\n\nPyTorch has a unique way of building neural networks: using and replaying a tape recorder."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 12,
+		"text": "Most frameworks such as TensorFlow, Theano, Caffe, and CNTK have a static view of the world."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 13,
+		"text": "One has to build a neural network and reuse the same structure again and again."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 14,
+		"text": "Changing the way the network behaves means that one has to start from scratch."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 15,
+		"text": "With PyTorch, we use a technique called reverse-mode auto-differentiation, which allows you to\nchange the way your network behaves arbitrarily with zero lag or overhead."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 16,
+		"text": "Our inspiration comes\nfrom several research papers on this topic, as well as current and past work such as\n[torch-autograd](https://github.com/twitter/torch-autograd),\n[autograd](https://github.com/HIPS/autograd),\n[Chainer](https://chainer.org), etc."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 17,
+		"text": "While this technique is not unique to PyTorch, it's one of the fastest implementations of it to date."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 18,
+		"text": "You get the best of speed and flexibility for your crazy research."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 19,
+		"text": "!"
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 20,
+		"text": "[Dynamic graph](https://github.com/pytorch/pytorch/raw/main/docs/source/_static/img/dynamic_graph.gif)\n\n### Python First\n\nPyTorch is not a Python binding into a monolithic C++ framework."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 21,
+		"text": "It is built to be deeply integrated into Python."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 22,
+		"text": "You can use it naturally like you would use [NumPy](https://www.numpy.org/) / [SciPy](https://www.scipy.org/) / [scikit-learn](https://scikit-learn.org) etc."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 23,
+		"text": "You can write your new neural network layers in Python itself, using your favorite libraries\nand use packages such as [Cython](https://cython.org/) and [Numba](https://numba.pydata.org/)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 24,
+		"text": "Our goal is to not reinvent the wheel where appropriate."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 25,
+		"text": "### Imperative Experiences\n\nPyTorch is designed to be intuitive, linear in thought, and easy to use."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 26,
+		"text": "When you execute a line of code, it gets executed."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 27,
+		"text": "There isn't an asynchronous view of the world."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 28,
+		"text": "When you drop into a debugger or receive error messages and stack traces, understanding them is straightforward."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 29,
+		"text": "The stack trace points to exactly where your code was defined."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 30,
+		"text": "We hope you never spend hours debugging your code because of bad stack traces or asynchronous and opaque execution engines."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 31,
+		"text": "### Fast and Lean\n\nPyTorch has minimal framework overhead."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 32,
+		"text": "We integrate acceleration libraries\nsuch as [Intel MKL](https://software.intel.com/mkl) and NVIDIA ([cuDNN](https://developer.nvidia.com/cudnn), [NCCL](https://developer.nvidia.com/nccl)) to maximize speed."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 33,
+		"text": "At the core, its CPU and GPU Tensor and neural network backends\nare mature and have been tested for years."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 34,
+		"text": "Hence, PyTorch is quite fast \u2014 whether you run small or large neural networks."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 35,
+		"text": "The memory usage in PyTorch is extremely efficient compared to Torch or some of the alternatives."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 36,
+		"text": "We've written custom memory allocators for the GPU to make sure that\nyour deep learning models are maximally memory efficient."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 37,
+		"text": "This enables you to train bigger deep learning models than before."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 38,
+		"text": "### Extensions Without Pain\n\nWriting new neural network modules, or interfacing with PyTorch's Tensor API, was designed to be straightforward\nand with minimal abstractions."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 39,
+		"text": "You can write new neural network layers in Python using the torch API\n[or your favorite NumPy-based libraries such as SciPy](https://pytorch.org/tutorials/advanced/numpy_extensions_tutorial.html)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 40,
+		"text": "If you want to write your layers in C/C++, we provide a convenient extension API that is efficient and with minimal boilerplate."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 41,
+		"text": "No wrapper code needs to be written."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 42,
+		"text": "You can see [a tutorial here](https://pytorch.org/tutorials/advanced/cpp_extension.html) and [an example here](https://github.com/pytorch/extension-cpp)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 43,
+		"text": "## Installation\n\n### Binaries\nCommands to install binaries via Conda or pip wheels are on our website: [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/)\n\n\n#### NVIDIA Jetson Platforms\n\nPython wheels for NVIDIA's Jetson Nano, Jetson TX1/TX2, Jetson Xavier NX/AGX, and Jetson AGX Orin are provided [here](https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-10-now-available/72048) and the L4T container is published [here](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/l4t-pytorch)\n\nThey require JetPack 4.2 and above, and [@dusty-nv](https://github.com/dusty-nv) and [@ptrblck](https://github.com/ptrblck) are maintaining them."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 44,
+		"text": "### From Source\n\n#### Prerequisites\nIf you are installing from source, you will need:\n- Python 3.10 or later\n- A compiler that fully supports C++20, such as clang or gcc (gcc 11.3.0 or newer is required, on Linux)\n- Visual Studio or Visual Studio Build Tool (Windows only)\n- At least 10 GB of free disk space\n- 30-60 minutes for the initial build (subsequent rebuilds are much faster)\n\n\\* PyTorch CI uses Visual C++ BuildTools, which come with Visual Studio Enterprise,\nProfessional, or Community Editions."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 45,
+		"text": "You can also install the build tools from\nhttps://visualstudio.microsoft.com/visual-cpp-build-tools/."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 46,
+		"text": "The build tools *do not*\ncome with Visual Studio Code by default."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 47,
+		"text": "An example of environment setup is shown below:\n\n* Linux:\n\n```bash\n$ source <CONDA_INSTALL_DIR>/bin/activate\n$ conda create -y -n <CONDA_NAME>\n$ conda activate <CONDA_NAME>\n```\n* Windows:\n\n```bash\n$ source <CONDA_INSTALL_DIR>\\Scripts\\activate.bat\n$ conda create -y -n <CONDA_NAME>\n$ conda activate <CONDA_NAME>\n$ call \"C:\\Program Files\\Microsoft Visual Studio\\<VERSION>\\Community\\VC\\Auxiliary\\Build\\vcvarsall.bat\" x64\n```\n\nA conda environment is not required."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 48,
+		"text": "You can also do a PyTorch build in a\nstandard virtual environment, e.g., created with tools like `uv`, provided\nyour system has installed all the necessary dependencies unavailable as pip\npackages (e.g., CUDA, MKL.)"
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 49,
+		"text": "##### NVIDIA CUDA Support\nIf you want to compile with CUDA support, [select a supported version of CUDA from our support matrix](https://pytorch.org/get-started/locally/), then install the following:\n- [NVIDIA CUDA](https://developer.nvidia.com/cuda-downloads)\n- [NVIDIA cuDNN](https://developer.nvidia.com/cudnn) v9.0 or above\n- [Compiler](https://gist.github.com/ax3l/9489132) compatible with CUDA\n\nNote: You could refer to the [cuDNN Support Matrix](https://docs.nvidia.com/deeplearning/cudnn/backend/latest/reference/support-matrix.html) for cuDNN versions with the various supported CUDA, CUDA driver, and NVIDIA hardware."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 50,
+		"text": "If you want to disable CUDA support, export the environment variable `USE_CUDA=0`."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 51,
+		"text": "Other potentially useful environment variables are documented in `cmake/EnvVarForwarding.cmake`."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 52,
+		"text": "If\nCUDA is installed in a non-standard location, set PATH so that the nvcc you\nwant to use can be found (e.g., `export PATH=/usr/local/cuda-12.8/bin:$PATH`)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 53,
+		"text": "If you are building for NVIDIA's Jetson platforms (Jetson Nano, TX1, TX2, AGX Xavier), Instructions to install PyTorch for Jetson Nano are [available here](https://devtalk.nvidia.com/default/topic/1049071/jetson-nano/pytorch-for-jetson-nano/)\n\n##### AMD ROCm Support\nIf you want to compile with ROCm support, install\n- [AMD ROCm](https://rocm.docs.amd.com/en/latest/deploy/linux/quick_start.html) 4.0 and above installation\n- ROCm is currently supported only for Linux systems."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 54,
+		"text": "By default the build system expects ROCm to be installed in `/opt/rocm`."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 55,
+		"text": "If ROCm is installed in a different directory, the `ROCM_PATH` environment variable must be set to the ROCm installation directory."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 56,
+		"text": "The build system automatically detects the AMD GPU architecture."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 57,
+		"text": "Optionally, the AMD GPU architecture can be explicitly set with the `PYTORCH_ROCM_ARCH` environment variable [AMD GPU architecture](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/reference/system-requirements.html#supported-gpus)\n\nIf you want to disable ROCm support, export the environment variable `USE_ROCM=0`."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 58,
+		"text": "Other potentially useful environment variables are documented in `cmake/EnvVarForwarding.cmake`."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 59,
+		"text": "##### Intel GPU Support\nIf you want to compile with Intel GPU support, follow these\n- [PyTorch Prerequisites for Intel GPUs](https://www.intel.com/content/www/us/en/developer/articles/tool/pytorch-prerequisites-for-intel-gpu.html) instructions."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 60,
+		"text": "- Intel GPU is supported for Linux and Windows."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 61,
+		"text": "If you want to disable Intel GPU support, export the environment variable `USE_XPU=0`."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 62,
+		"text": "Other potentially useful environment variables are documented in `cmake/EnvVarForwarding.cmake`."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 63,
+		"text": "#### Get the PyTorch Source\n\n```bash\ngit clone https://github.com/pytorch/pytorch\ncd pytorch\n# if you are updating an existing checkout\ngit submodule sync\ngit submodule update --init --recursive\n```\n\n#### Install Dependencies\n\n**Common**\n\n```bash\n# Run this command from the PyTorch directory after cloning the source code using the \u201cGet the PyTorch Source\u201c section above\npip install --group dev\n```\n\n**On Linux**\n\n```bash\npip install mkl-static mkl-include\n# CUDA only: Add LAPACK support for the GPU if needed\n# magma installation: run with active conda environment."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 64,
+		"text": "specify CUDA version to install\n.ci/docker/common/install_magma_conda.sh 12.4\n\n# (optional) If using torch.compile with inductor/triton, install the matching version of triton\n# Run from the pytorch directory after cloning\n# For Intel GPU support, please explicitly `export USE_XPU=1` before running command."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 65,
+		"text": "make triton\n```\n\n**On Windows**\n\n```bash\npip install mkl-static mkl-include\n# Add these packages if torch.distributed is needed."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 66,
+		"text": "# Distributed package support on Windows is a prototype feature and is subject to changes."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 67,
+		"text": "conda install -c conda-forge libuv=1.51\n```\n\n#### Install PyTorch\n\n**On Linux**\n\nIf you're compiling for AMD ROCm then first run this command:\n\n```bash\n# Only run this if you're compiling for ROCm\npython tools/amd_build/build_amd.py\n```\n\nInstall PyTorch\n\n```bash\n# the CMake prefix for conda environment\nexport CMAKE_PREFIX_PATH=\"${CONDA_PREFIX:-'$(dirname $(which conda))/../'}:${CMAKE_PREFIX_PATH}\"\npython -m pip install --no-build-isolation -v -e ."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 68,
+		"text": "# the CMake prefix for non-conda environment, e.g."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 69,
+		"text": "Python venv\n# call following after activating the venv\nexport CMAKE_PREFIX_PATH=\"${VIRTUAL_ENV}:${CMAKE_PREFIX_PATH}\"\n```\n\n**On macOS**\n\n```bash\npython -m pip install --no-build-isolation -v -e ."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 70,
+		"text": "```\n\n**On Windows**\n\nIf you want to build legacy python code, please refer to [Building on legacy code and CUDA](https://github.com/pytorch/pytorch/blob/main/CONTRIBUTING.md#building-on-legacy-code-and-cuda)\n\n**CPU-only builds**\n\nIn this mode PyTorch computations will run on your CPU, not your GPU."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 71,
+		"text": "```cmd\npython -m pip install --no-build-isolation -v -e ."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 72,
+		"text": "```\n\nNote on OpenMP: The desired OpenMP implementation is Intel OpenMP (iomp)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 73,
+		"text": "In order to link against iomp, you'll need to manually download the library and set up the building environment by tweaking `CMAKE_INCLUDE_PATH` and `LIB`."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 74,
+		"text": "The instruction [here](https://docs.pytorch.org/docs/main/notes/windows.html#building-from-source) is an example for setting up both MKL and Intel OpenMP."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 75,
+		"text": "Without these configurations for CMake, Microsoft Visual C OpenMP runtime (vcomp) will be used."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 76,
+		"text": "**CUDA based build**\n\nIn this mode PyTorch computations will leverage your GPU via CUDA for faster number crunching\n\n[NVTX](https://docs.nvidia.com/gameworks/content/gameworkslibrary/nvtx/nvidia_tools_extension_library_nvtx.htm) is needed to build PyTorch with CUDA."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 77,
+		"text": "NVTX is a part of CUDA distributive, where it is called \"Nsight Compute\"."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 78,
+		"text": "To install it onto an already installed CUDA run CUDA installation once again and check the corresponding checkbox."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 79,
+		"text": "Make sure that CUDA with Nsight Compute is installed after Visual Studio."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 80,
+		"text": "Currently, VS 2017 / 2019, and Ninja are supported as the generator of CMake."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 81,
+		"text": "If `ninja.exe` is detected in `PATH`, then Ninja will be used as the default generator, otherwise, it will use VS 2017 / 2019."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 82,
+		"text": "<br/> If Ninja is selected as the generator, the latest MSVC will get selected as the underlying toolchain."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 83,
+		"text": "Additional libraries such as\n[Magma](https://developer.nvidia.com/magma), [oneDNN, a.k.a."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 84,
+		"text": "MKLDNN or DNNL](https://github.com/oneapi-src/oneDNN), and [Sccache](https://github.com/mozilla/sccache) are often needed."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 85,
+		"text": "Please refer to the [installation-helper](https://github.com/pytorch/pytorch/tree/main/.ci/pytorch/win-test-helpers/installation-helpers) to install them."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 86,
+		"text": "You can refer to the [build_pytorch.bat](https://github.com/pytorch/pytorch/blob/main/.ci/pytorch/win-test-helpers/build_pytorch.bat) script for some other environment variables configurations\n\n```cmd\ncmd\n\n:: Set the environment variables after you have downloaded and unzipped the mkl package,\n:: else CMake would throw an error as `Could NOT find OpenMP`."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 87,
+		"text": "set CMAKE_INCLUDE_PATH={Your directory}\\mkl\\include\nset LIB={Your directory}\\mkl\\lib;%LIB%\n\n:: Read the content in the previous section carefully before you proceed."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 88,
+		"text": ":: [Optional] If you want to override the underlying toolset used by Ninja and Visual Studio with CUDA, please run the following script block."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 89,
+		"text": ":: \"Visual Studio 2019 Developer Command Prompt\" will be run automatically."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 90,
+		"text": ":: Make sure you have CMake >= 3.12 before you do this when you use the Visual Studio generator."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 91,
+		"text": "set CMAKE_GENERATOR_TOOLSET_VERSION=14.27\nset DISTUTILS_USE_SDK=1\nfor /f \"usebackq tokens=*\" %i in (`\"%ProgramFiles(x86)%\\Microsoft Visual Studio\\Installer\\vswhere.exe\" -version [15^,17^) -products * -latest -property installationPath`) do call \"%i\\VC\\Auxiliary\\Build\\vcvarsall.bat\" x64 -vcvars_ver=%CMAKE_GENERATOR_TOOLSET_VERSION%\n\n:: [Optional] If you want to override the CUDA host compiler\nset CUDAHOSTCXX=C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.27.29110\\bin\\HostX64\\x64\\cl.exe\n\npython -m pip install --no-build-isolation -v -e ."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 92,
+		"text": "```\n\n**Intel GPU builds**\n\nIn this mode PyTorch with Intel GPU support will be built."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 93,
+		"text": "Please make sure [the common prerequisites](#prerequisites) as well as [the prerequisites for Intel GPU](#intel-gpu-support) are properly installed and the environment variables are configured prior to starting the build."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 94,
+		"text": "For build tool support, `Visual Studio 2022` is required."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 95,
+		"text": "Then PyTorch can be built with the command:\n\n```cmd\n:: CMD Commands:\n:: Set the CMAKE_PREFIX_PATH to help find corresponding packages\n:: %CONDA_PREFIX% only works after `conda activate custom_env`\n\nif defined CMAKE_PREFIX_PATH (\n    set \"CMAKE_PREFIX_PATH=%CONDA_PREFIX%\\Library;%CMAKE_PREFIX_PATH%\"\n) else (\n    set \"CMAKE_PREFIX_PATH=%CONDA_PREFIX%\\Library\"\n)\n\npython -m pip install --no-build-isolation -v -e ."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 96,
+		"text": "```\n\n##### Adjust Build Options (Optional)\n\nYou can adjust the configuration of CMake variables through environment variables, which the\nbuild forwards to CMake (see [`cmake/EnvVarForwarding.cmake`](./cmake/EnvVarForwarding.cmake) for\nthe full list)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 97,
+		"text": "For example, pointing the build at a specific Conda prefix, CuDNN, or BLAS:\n\nOn Linux\n\n```bash\nexport CMAKE_PREFIX_PATH=\"${CONDA_PREFIX:-'$(dirname $(which conda))/../'}:${CMAKE_PREFIX_PATH}\"\nspin develop\n```\n\nOn macOS\n\n```bash\nexport CMAKE_PREFIX_PATH=\"${CONDA_PREFIX:-'$(dirname $(which conda))/../'}:${CMAKE_PREFIX_PATH}\"\nMACOSX_DEPLOYMENT_TARGET=11.0 spin develop\n```\n\nAfter a first `spin develop`, you can inspect or adjust the CMake cache interactively with\n`ccmake build` (or `cmake-gui build`) and rebuild with `spin develop`; your edits persist, because\nreconfiguration does not use `--fresh` and environment variables only seed cache entries that are\nnot already set."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 98,
+		"text": "The corollary: once a variable is in the cache, changing its environment variable\nno longer affects it -- edit the cache directly (or delete `build/CMakeCache.txt`) to change it."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 99,
+		"text": "The build type and compiler are the exception; the build always re-applies them."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 100,
+		"text": "### Docker Image\n\n#### Using pre-built images\n\nYou can also pull a pre-built docker image from Docker Hub and run with docker v23.0+\n\n```bash\ndocker run --gpus all --rm -ti --ipc=host pytorch/pytorch:latest\n```\n\nPlease note that PyTorch uses shared memory to share data between processes, so if torch multiprocessing is used (e.g."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 101,
+		"text": "for multithreaded data loaders) the default shared memory segment size that container runs with is not enough, and you\nshould increase shared memory size either with `--ipc=host` or `--shm-size` command line options to `nvidia-docker run`."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 102,
+		"text": "#### Building the image yourself\n\n**NOTE:** Must be built with a Docker version >= 23.0\n\nThe Dockerfile is supplied to build images with CUDA 12.6 support and cuDNN v9."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 103,
+		"text": "You can pass `PYTHON_VERSION=x.y` make variable to specify which Python version is to be used by Miniconda, or leave it\nunset to use the default, as the Dockerfile uses system Python."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 104,
+		"text": "```bash\nmake -f docker.Makefile\n# images are tagged as docker.io/${your_docker_username}/pytorch\n```\n\nYou can also pass the `CMAKE_VARS=\"...\"` environment variable to specify additional CMake variables to be passed to CMake during the build."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 105,
+		"text": "See [`cmake/EnvVarForwarding.cmake`](./cmake/EnvVarForwarding.cmake) for the list of available variables."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 106,
+		"text": "```bash\nmake -f docker.Makefile\n```\n\n### Building the Documentation\n\nTo build documentation in various formats, you will need [Sphinx](https://www.sphinx-doc.org)\nand the `pytorch_sphinx_theme2`."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 107,
+		"text": "Before you build the documentation locally, ensure `torch` is\ninstalled in your environment."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 108,
+		"text": "For small fixes, you can install the\nnightly version as described in [Getting Started](https://pytorch.org/get-started/locally/)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 109,
+		"text": "For more complex fixes, such as adding a new module and docstrings for\nthe new module, you might need to install torch [from source](#from-source)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 110,
+		"text": "See [Docstring Guidelines](https://github.com/pytorch/pytorch/wiki/Docstring-Guidelines)\nfor docstring conventions."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 111,
+		"text": "```bash\ncd docs/\npip install -r requirements.txt\nmake html\nmake serve\n```\n\nRun `make` to get a list of all available output formats."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 112,
+		"text": "If you get a katex error run `npm install katex`."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 113,
+		"text": "If it persists, try\n`npm install -g katex`\n\n> [!NOTE]\n> If you see a numpy incompatibility error, run:\n> ```\n> pip install 'numpy<2'\n> ```\n\n\n#### Troubleshooting CI Errors\nYour build may show errors you didn't have locally - here's how to find the errors relevant to the docs."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 114,
+		"text": "If the build has any errors, you will see something like this on the PR:\n\n<img width=\"781\" height=\"400\" alt=\"Monosnap Update installation instructions for doc build \u00b7 Pull Request #169534 \u00b7 pytorch:pytorch 2025-12-18 18-22-53\" src=\"https://github.com/user-attachments/assets/49a3dfe7-81c2-4246-852b-bc3f807e95af\" />\n\nAny doc-related errors will occur in jobs that include \"doc\" somewhere in the title."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 115,
+		"text": "It doesn't look like any of these jobs are relevant to our docs."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 116,
+		"text": "Let's take a look anyway."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 117,
+		"text": "Click on the job to see the logs:\n\n<img width=\"1187\" height=\"668\" alt=\"Monosnap Update installation instructions for doc build \u00b7 pytorch:pytorch@7380336 2025-12-18 18-24-15\" src=\"https://github.com/user-attachments/assets/117df543-8356-4323-8e1c-ef02a95554ba\" />\n\nAnd we can be sure that this job does not involve docs."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 118,
+		"text": "Looking at this build, we can see these jobs are relevant to our docs - and they didn't have any errors:\n\n<img width=\"777\" height=\"395\" alt=\"Check the docs jobs\" src=\"https://github.com/user-attachments/assets/5d7c196b-2d40-49ad-87e3-f57de6e14a5b\" />\n\nYou might also see a comment on the PR like this:\n\n<img width=\"651\" height=\"246\" alt=\"PR Comment\" src=\"https://github.com/user-attachments/assets/27e0120a-ba33-4b1c-b4a5-bf3064520586\" />\n\nWe can see that some of these issues are relevant to our docs."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 119,
+		"text": "Open the logs by clicking on the `gh` link:\n\n<img width=\"873\" height=\"360\" alt=\"View Logs\" src=\"https://github.com/user-attachments/assets/ab5b862f-8026-489c-b95e-a6cd4257e4b7\" />\n\nAnd here we can see there is a doc-related error:\n\n<img width=\"1117\" height=\"433\" alt=\"Doc Error\" src=\"https://github.com/user-attachments/assets/0a275921-736d-43a7-ab0f-3e8854d43280\" />\n\nYou can always find the relevant doc builds by going to the `Checks` tab on your PR, and scrolling down to `pull`."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 120,
+		"text": "<img width=\"481\" height=\"561\" alt=\"checks\" src=\"https://github.com/user-attachments/assets/eef18f2b-7134-4e2e-bd90-bcdc12800132\" />\n\nYou can either click through or toggle the accordion to see all of the jobs here, where you can see the docs jobs highlighted:\n\n<img width=\"570\" height=\"611\" alt=\"jobs\" src=\"https://github.com/user-attachments/assets/f62812ca-caee-421b-863c-54f38fd28d46\" />\n\nIf you click through, you'll see the doc jobs at the bottom, like this:\n\n<img width=\"354\" height=\"312\" alt=\"View Docs jobs\" src=\"https://github.com/user-attachments/assets/8fadb935-5314-4c4b-a1b5-133781754f03\" />\n\n\n#### Building a PDF\n\nTo compile a PDF of all PyTorch documentation, ensure you have\n`texlive` and LaTeX installed."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 121,
+		"text": "On macOS, you can install them using:\n\n```\nbrew install --cask mactex\n```\n\nTo create the PDF:\n\n1."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 122,
+		"text": "Run:\n\n   ```\n   make latexpdf\n   ```\n\n   This will generate the necessary files in the `build/latex` directory."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 123,
+		"text": "2."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 124,
+		"text": "Navigate to this directory and execute:\n\n   ```\n   make LATEXOPTS=\"-interaction=nonstopmode\"\n   ```\n\n   This will produce a `pytorch.pdf` with the desired content."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 125,
+		"text": "Run this\n   command one more time so that it generates the correct table\n   of contents and index."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 126,
+		"text": "> [!NOTE]\n> To view the Table of Contents, switch to the **Table of Contents**\n> view in your PDF viewer."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 127,
+		"text": "### Previous Versions\n\nInstallation instructions and binaries for previous PyTorch versions may be found\non [our website](https://pytorch.org/get-started/previous-versions)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 128,
+		"text": "## Getting Started\n\nPointers to get you started:\n- [Tutorials: get you started with understanding and using PyTorch](https://pytorch.org/tutorials/)\n- [Examples: easy to understand PyTorch code across all domains](https://github.com/pytorch/examples)\n- [The API Reference](https://pytorch.org/docs/)\n- [Glossary](https://github.com/pytorch/pytorch/blob/main/GLOSSARY.md)\n\n## Resources\n\n* [PyTorch.org](https://pytorch.org/)\n* [PyTorch Tutorials](https://pytorch.org/tutorials/)\n* [PyTorch Examples](https://github.com/pytorch/examples)\n* [PyTorch Models](https://pytorch.org/hub/)\n* [Intro to Deep Learning with PyTorch from Udacity](https://www.udacity.com/course/deep-learning-pytorch--ud188)\n* [Intro to Machine Learning with PyTorch from Udacity](https://www.udacity.com/course/intro-to-machine-learning-nanodegree--nd229)\n* [Deep Neural Networks with PyTorch from Coursera](https://www.coursera.org/learn/deep-neural-networks-with-pytorch)\n* [PyTorch Twitter](https://twitter.com/PyTorch)\n* [PyTorch Blog](https://pytorch.org/blog/)\n* [PyTorch YouTube](https://www.youtube.com/channel/UCWXI5YeOsh03QvJ59PMaXFw)\n\n## Communication\n* Forums: Discuss implementations, research, etc."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 129,
+		"text": "https://discuss.pytorch.org\n* GitHub Issues: Bug reports, feature requests, install issues, RFCs, thoughts, etc."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 130,
+		"text": "* Slack: The [PyTorch Slack](https://pytorch.slack.com/) hosts a primary audience of moderate to experienced PyTorch users and developers for general chat, online discussions, collaboration, etc."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 131,
+		"text": "* Facebook Page: Important announcements about PyTorch."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 132,
+		"text": "https://www.facebook.com/pytorch\n* For brand guidelines, please visit our website at [pytorch.org](https://pytorch.org/)\n\n## Releases and Contributing\n\nTypically, PyTorch has three minor releases a year."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 133,
+		"text": "Please let us know if you encounter a bug by [filing an issue](https://github.com/pytorch/pytorch/issues)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 134,
+		"text": "We appreciate all contributions."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 135,
+		"text": "If you are planning to contribute back bug-fixes, please do so without any further discussion."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 136,
+		"text": "If you plan to contribute new features, utility functions, or extensions to the core, please first open an issue and discuss the feature with us."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 137,
+		"text": "Sending a PR without discussion might end up resulting in a rejected PR because we might be taking the core in a different direction than you might be aware of."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 138,
+		"text": "To learn more about making a contribution to PyTorch, please see our [Contribution page](CONTRIBUTING.md)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 139,
+		"text": "For more information about PyTorch releases, see [Release page](RELEASE.md)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 140,
+		"text": "## The Team\n\nPyTorch is a community-driven project with several skillful engineers and researchers contributing to it."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 141,
+		"text": "PyTorch is currently maintained by [Soumith Chintala](https://soumith.ch), [Gregory Chanan](https://github.com/gchanan), [Dmytro Dzhulgakov](https://github.com/dzhulgakov), [Edward Yang](https://github.com/ezyang), [Alban Desmaison](https://github.com/albanD), [Piotr Bialecki](https://github.com/ptrblck) and [Nikita Shulga](https://github.com/malfet) with major contributions coming from hundreds of talented individuals in various forms and means."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 142,
+		"text": "A non-exhaustive but growing list needs to mention: [Trevor Killeen](https://github.com/killeent), [Sasank Chilamkurthy](https://github.com/chsasank), [Sergey Zagoruyko](https://github.com/szagoruyko), [Adam Lerer](https://github.com/adamlerer), [Francisco Massa](https://github.com/fmassa), [Alykhan Tejani](https://github.com/alykhantejani), [Luca Antiga](https://github.com/lantiga), [Alban Desmaison](https://github.com/albanD), [Andreas Koepf](https://github.com/andreaskoepf), [James Bradbury](https://github.com/jekbradbury), [Zeming Lin](https://github.com/ebetica), [Yuandong Tian](https://github.com/yuandong-tian), [Guillaume Lample](https://github.com/glample), [Marat Dukhan](https://github.com/Maratyszcza), [Natalia Gimelshein](https://github.com/ngimel), [Christian Sarofeen](https://github.com/csarofeen), [Martin Raison](https://github.com/martinraison), [Edward Yang](https://github.com/ezyang), [Zachary Devito](https://github.com/zdevito)."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 143,
+		"text": "<!-- codespell:ignore -->\n\nNote: This project is unrelated to [hughperkins/pytorch](https://github.com/hughperkins/pytorch) with the same name."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 144,
+		"text": "Hugh is a valuable contributor to the Torch community and has helped with many things Torch and PyTorch."
+	},
+	{
+		"doc_id": "pytorch",
+		"chunk_id": 145,
+		"text": "## License\n\nPyTorch has a BSD-style license, as found in the [LICENSE](LICENSE) file."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 0,
+		"text": "[!"
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 1,
+		"text": "[codecov](https://codecov.io/github/redis/redis/graph/badge.svg?token=6bVHb5fRuz)](https://codecov.io/github/redis/redis)\n\nThis document serves as both a quick start guide to Redis and a detailed resource for building it from source."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 2,
+		"text": "- New to Redis?"
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 3,
+		"text": "Start with [What is Redis](#what-is-redis) and [Getting Started](#getting-started)\n- Ready to build from source?"
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 4,
+		"text": "Jump to [Build Redis from Source](#build-redis-from-source)\n- Want to contribute?"
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 5,
+		"text": "See the [Code contributions](#code-contributions) section\n  and [CONTRIBUTING.md](./CONTRIBUTING.md)\n- Looking for detailed documentation?"
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 6,
+		"text": "Navigate to [redis.io/docs](https://redis.io/docs/)\n\n## Table of contents\n\n- [What is Redis?"
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 7,
+		"text": "](#what-is-redis)\n  - [Key use cases](#key-use-cases)\n- [Why choose Redis?"
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 8,
+		"text": "](#why-choose-redis)\n- [What is Redis Open Source?"
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 9,
+		"text": "](#what-is-redis-open-source)\n- [Getting started](#getting-started)\n  - [Redis starter projects](#redis-starter-projects)\n  - [Using Redis with client libraries](#using-redis-with-client-libraries)\n  - [Using Redis with redis-cli](#using-redis-with-redis-cli)\n  - [Using Redis with Redis Insight](#using-redis-with-redis-insight)\n- [Redis data types, processing engines, and capabilities](#redis-data-types-processing-engines-and-capabilities)\n- [Cloud hosted Redis](#cloud-hosted-redis)\n- [Community](#community)\n- [Build Redis from source](#build-redis-from-source)\n  - [Install dependencies and build](#install-dependencies-and-build)\n  - [Building Redis - flags and general notes](#building-redis---flags-and-general-notes)\n  - [Fixing build problems with dependencies or cached build options](#fixing-build-problems-with-dependencies-or-cached-build-options)\n  - [Fixing problems building 32 bit binaries](#fixing-problems-building-32-bit-binaries)\n  - [Allocator](#allocator)\n  - [Monotonic clock](#monotonic-clock)\n  - [Verbose build](#verbose-build)\n  - [Running Redis with TLS](#running-redis-with-tls)\n- [Code contributions](#code-contributions)\n- [Redis Trademarks](#redis-trademarks)\n\n## What is Redis?"
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 10,
+		"text": "For developers, who are building real-time data-driven applications, Redis is the preferred, fastest, and most feature-rich cache, data structure server, and document and vector query engine."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 11,
+		"text": "### Key use cases\n\nRedis excels in various applications, including:\n\n- **Caching:** Supports multiple eviction policies, key expiration, and hash-field expiration."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 12,
+		"text": "- **Distributed Session Store:** Offers flexible session data modeling (string, JSON, hash)."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 13,
+		"text": "- **Data Structure Server:** Provides low-level data structures (strings, lists, sets, hashes, sorted sets, JSON, etc.)"
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 14,
+		"text": "with high-level semantics (counters, queues, leaderboards, rate limiters) and supports transactions & scripting."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 15,
+		"text": "- **NoSQL Data Store:** Key-value, document, and time series data storage."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 16,
+		"text": "- **Search and Query Engine:** Indexing for hash/JSON documents, supporting vector search, full-text search, geospatial queries, ranking, and aggregations via Redis Search."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 17,
+		"text": "- **Event Store & Message Broker:** Implements queues (lists), priority queues (sorted sets), event deduplication (sets), streams, and pub/sub with probabilistic stream processing capabilities."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 18,
+		"text": "- **Vector Store for GenAI:** Integrates with AI applications (e.g."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 19,
+		"text": "LangGraph, mem0) for short-term memory, long-term memory, LLM response caching (semantic caching), and retrieval augmented generation (RAG)."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 20,
+		"text": "- **Real-Time Analytics:** Powers personalization, recommendations, fraud detection, and risk assessment."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 21,
+		"text": "## Why choose Redis?"
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 22,
+		"text": "Redis is a popular choice for developers worldwide due to its combination of speed, flexibility, and rich feature set."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 23,
+		"text": "Here's why people choose Redis for:\n\n- **Performance:** Because Redis keeps data primarily in memory and uses efficient data structures, it achieves extremely low latency (often sub-millisecond) for both read and write operations."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 24,
+		"text": "This makes it ideal for applications demanding real-time responsiveness."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 25,
+		"text": "- **Flexibility:** Redis isn't just a key-value store, it provides native support for a wide range of data structures and capabilities listed in [What is Redis?"
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 26,
+		"text": "](#what-is-redis)\n- **Extensibility:** Redis is not limited to the built-in data structures, it has a [modules API](https://redis.io/docs/latest/develop/reference/modules/) that makes it possible to extend Redis functionality and rapidly implement new Redis commands\n- **Simplicity:** Redis has a simple, text-based protocol and [well-documented command set](https://redis.io/docs/latest/commands/)\n- **Ubiquity:** Redis is battle tested in production workloads at a massive scale."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 27,
+		"text": "There is a good chance you indirectly interact with Redis several times daily\n- **Versatility**: Redis is the de facto standard for use cases such as:\n  - **Caching:** quickly access frequently used data without needing to query your primary database\n  - **Session management:** read and write user session data without hurting user experience or slowing down every API call\n  - **Querying, sorting, and analytics:** perform deduplication, full text search, and secondary indexing on in-memory data as fast as possible\n  - **Messaging and interservice communication:** job queues, message brokering, pub/sub, and streams for communicating between services\n  - **Vector operations:** Long-term and short-term LLM memory, RAG content retrieval, semantic caching, semantic routing, and vector similarity search\n\nIn summary, Redis provides a powerful, fast, and flexible toolkit for solving a wide variety of data management challenges."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 28,
+		"text": "If you want to know more, here is a list of starting points:\n\n- [**Introduction to Redis data types**](https://redis.io/docs/latest/develop/data-types/)\n- [**The full list of Redis commands**](https://redis.io/commands/)\n- [**Redis for AI**](https://redis.io/docs/latest/develop/ai/)\n- [**Redis documentation**](https://redis.io/documentation/)\n\n## What is Redis Open Source?"
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 29,
+		"text": "Redis Community Edition (Redis CE) was renamed Redis Open Source with the v8.0 release."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 30,
+		"text": "Redis Ltd. also offers [Redis Software](https://redis.io/enterprise/), a self-managed software with additional compliance, reliability, and resiliency for enterprise scaling,\nand [Redis Cloud](https://redis.io/cloud/), a fully managed service integrated with Google Cloud, Azure, and AWS for production-ready apps."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 31,
+		"text": "Read more about the differences between Redis Open Source and Redis [here](https://redis.io/technology/advantages/)."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 32,
+		"text": "## Getting started\n\nIf you want to get up and running with Redis quickly without needing to build from source, use one of the following methods:\n\n- [**Redis Cloud**](https://cloud.redis.io/)\n- [**Official Redis Docker images (Alpine/Debian)**](https://hub.docker.com/_/redis)\n  ```sh\n  docker run -d -p 6379:6379 redis:latest\n  ```\n- **Redis binary distributions**\n  - [**Snap**](https://github.com/redis/redis-snap)\n  - [**Homebrew**](https://github.com/redis/homebrew-redis)\n  - [**RPM**](https://github.com/redis/redis-rpm)\n  - [**Debian**](https://github.com/redis/redis-debian)\n- [**Redis quick start guides**](https://redis.io/docs/latest/develop/get-started/)\n\nIf you prefer to [build Redis from source](#build-redis-from-source) - see instructions below."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 33,
+		"text": "### Redis starter projects\n\nTo get started as quickly as possible in your language of choice, use one of the following starter projects:\n\n- [**Python (redis-py)**](https://github.com/redis-developer/redis-starter-python)\n- [**C#/.NET (NRedisStack/StackExchange.Redis)**](https://github.com/redis-developer/redis-starter-csharp)\n- [**Go (go-redis)**](https://github.com/redis-developer/redis-starter-go)\n- [**JavaScript (node-redis)**](https://github.com/redis-developer/redis-starter-js)\n- [**Java/Spring (Jedis)**](https://github.com/redis-developer/redis-starter-java)\n\n### Using Redis with client libraries\n\nTo connect your application to Redis, you will need a client library."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 34,
+		"text": "Redis has documented client libraries in most popular languages, with community-supported client libraries in additional languages."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 35,
+		"text": "- [**Python (redis-py)**](https://redis.io/docs/latest/develop/clients/redis-py/)\n- [**Python (RedisVL)**](https://redis.io/docs/latest/integrate/redisvl/)\n- [**C#/.NET (NRedisStack/StackExchange.Redis)**](https://redis.io/docs/latest/develop/clients/dotnet/)\n- [**JavaScript (node-redis)**](https://redis.io/docs/latest/develop/clients/nodejs/)\n- [**Java (Jedis)**](https://redis.io/docs/latest/develop/clients/jedis/)\n- [**Java (Lettuce)**](https://redis.io/docs/latest/develop/clients/lettuce/)\n- [**Go (go-redis)**](https://redis.io/docs/latest/develop/clients/go/)\n- [**PHP (Predis)**](https://redis.io/docs/latest/develop/clients/php/)\n- [**C (hiredis)**](https://redis.io/docs/latest/develop/clients/hiredis/)\n- [**Full list of client libraries**](https://redis.io/docs/latest/develop/clients/)\n\n### Using Redis with redis-cli\n\n[`redis-cli`](https://redis.io/docs/latest/develop/tools/cli/) is Redis' command line interface."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 36,
+		"text": "It is available as part of all the binary distributions and when you build Redis from source."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 37,
+		"text": "You can start a redis-server instance, and then, in another terminal try the following:\n\n```sh\ncd src\n./redis-cli\n```\n\n```text\nredis> ping\nPONG\nredis> set foo bar\nOK\nredis> get foo\n\"bar\"\nredis> incr mycounter\n(integer) 1\nredis> incr mycounter\n(integer) 2\nredis>\n```\n\n### Using Redis with Redis Insight\n\nFor a more visual and user-friendly experience, use [Redis Insight](https://redis.io/docs/latest/develop/tools/insight/) - a tool that lets you explore data, design, develop, and optimize your applications while also serving as a platform for Redis education and onboarding."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 38,
+		"text": "Redis Insight integrates [Redis Copilot](https://redis.io/chat), a natural language AI assistant that improves the experience when working with data and commands."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 39,
+		"text": "- [**Redis Insight documentation**](https://redis.io/docs/latest/develop/tools/insight/)\n- [**Redis Insight GitHub repository**](https://github.com/RedisInsight/RedisInsight)\n\n## Redis data types, processing engines, and capabilities\n\nRedis provides a variety of data types, processing engines, and capabilities to support a wide range of use cases:\n\n- [**String:**](https://redis.io/docs/latest/develop/data-types/strings) Sequences of bytes, including text, serialized objects, and binary arrays used for caching, counters, and bitwise operations."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 40,
+		"text": "- [**JSON:**](https://redis.io/docs/latest/develop/data-types/json/) Nested JSON documents that are indexed and searchable using JSONPath expressions and with [Redis Search](https://redis.io/docs/latest/develop/ai/search-and-query/)\n- [**Array:**](https://redis.io/docs/latest/develop/data-types/arrays/) Sparse, index-addressable collection of string values\n- [**Hash:**](https://redis.io/docs/latest/develop/data-types/hashes/) Field-value maps used to represent basic objects and store groupings of key-value pairs with support for [hash field expiration (TTL)](https://redis.io/docs/latest/develop/data-types/hashes/#field-expiration)\n- [**Redis Search:**](https://redis.io/docs/latest/develop/ai/search-and-query/) Use Redis as a document database, a vector database, a secondary index, and a search engine."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 41,
+		"text": "Define indexes for hash and JSON documents and then use a rich query language for vector search, full-text search, geospatial queries, and aggregations."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 42,
+		"text": "- [**List:**](https://redis.io/docs/latest/develop/data-types/lists/) Linked lists of string values used as stacks, queues, and for queue management."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 43,
+		"text": "- [**Set:**](https://redis.io/docs/latest/develop/data-types/sets/) Unordered collection of unique strings used for tracking unique items, relations, and common set operations (intersections, unions, differences)."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 44,
+		"text": "- [**Sorted set:**](https://redis.io/docs/latest/develop/data-types/sorted-sets/) Collection of unique strings ordered by an associated score used for leaderboards and rate limiters."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 45,
+		"text": "- [**Vector set (beta):**](https://redis.io/docs/latest/develop/data-types/vector-sets/) Collection of vector embeddings used for semantic similarity search, semantic caching, semantic routing, and Retrieval Augmented Generation (RAG)."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 46,
+		"text": "- [**Geospatial indexes:**](https://redis.io/docs/latest/develop/data-types/geospatial/) Coordinates used for finding nearby points within a given radius or bounding box."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 47,
+		"text": "- [**Bitmap:**](https://redis.io/docs/latest/develop/data-types/bitmaps/) A set of bit-oriented operations defined on the string type used for efficient set representations and object permissions."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 48,
+		"text": "- [**Bitfield:**](https://redis.io/docs/latest/develop/data-types/bitfields/) Binary-encoded strings that let you set, increment, and get integer values of arbitrary bit length used for limited-range counters, numeric values, and multi-level object permissions such as role-based access control (RBAC)\n- [**Hyperloglog:**](https://redis.io/docs/latest/develop/data-types/probabilistic/hyperloglogs/) A probabilistic data structure for approximating the cardinality of a set used for analytics such as counting unique visits, form fills, etc."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 49,
+		"text": "- \\*[**Bloom filter:**](https://redis.io/docs/latest/develop/data-types/probabilistic/bloom-filter/) A probabilistic data structure to check if a given value is present in a set."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 50,
+		"text": "Used for fraud detection, ad placement, and unique column (i.e."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 51,
+		"text": "username/email/slug) checks."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 52,
+		"text": "- \\*[**Cuckoo filter:**](https://redis.io/docs/latest/develop/data-types/probabilistic/cuckoo-filter/) A probabilistic data structure for checking if a given value is present in a set while also allowing limited counting and deletions used in targeted advertising and coupon code validation."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 53,
+		"text": "- \\*[**t-digest:**](https://redis.io/docs/latest/develop/data-types/probabilistic/t-digest/) A probabilistic data structure used for estimating the percentile of a large dataset without having to store and order all the data points."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 54,
+		"text": "Used for hardware/software monitoring, online gaming, network traffic monitoring, and predictive maintenance."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 55,
+		"text": "- \\*[**Top-k:**](https://redis.io/docs/latest/develop/data-types/probabilistic/top-k/) A probabilistic data structure for finding the most frequent values in a data stream used for trend discovery."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 56,
+		"text": "- \\*[**Count-min sketch:**](https://redis.io/docs/latest/develop/data-types/probabilistic/count-min-sketch/) A probabilistic data structure for estimating how many times a given value appears in a data stream used for sales volume calculations."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 57,
+		"text": "- [**Time series:**](https://redis.io/docs/latest/develop/data-types/timeseries/) Data points indexed in time order used for monitoring sensor data, asset\n  tracking, and predictive analytics\n- [**Pub/sub**:](https://redis.io/docs/latest/develop/interact/pubsub/) A lightweight messaging capability."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 58,
+		"text": "Publishers send messages to a channel, and subscribers receive messages from that channel."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 59,
+		"text": "- [**Stream**:](https://redis.io/docs/latest/develop/data-types/streams/) An append-only log with random access capabilities and complex consumption strategies such as consumer groups."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 60,
+		"text": "Used for event sourcing, sensor monitoring, and notifications."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 61,
+		"text": "- [**Transaction:**](https://redis.io/docs/latest/develop/interact/transactions/) Allows the execution of a group of commands in a single step."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 62,
+		"text": "A request sent by another client will never be served in the middle of the execution of a transaction."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 63,
+		"text": "This guarantees that the commands are executed as a single isolated operation."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 64,
+		"text": "- [**Programmability:**](https://redis.io/docs/latest/develop/interact/programmability/eval-intro/) Upload and execute Lua scripts on the server."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 65,
+		"text": "Scripts can employ programmatic control structures and use most of the commands while executing to access the database."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 66,
+		"text": "Because scripts are executed on the server, reading and writing data from scripts is very efficient."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 67,
+		"text": "## Cloud hosted Redis\n\nFully-managed Redis with real-time performance at scale."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 68,
+		"text": "[**Redis Cloud**](https://redis.io/cloud/)\n\n## Community\n\n[**Redis Community Resources**](https://redis.io/community/)\n\n## Build Redis from source\n\nThis section refers to building Redis from source."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 69,
+		"text": "If you want to get up and running with Redis quickly without needing to build from source see the [Getting started section](#getting-started)."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 70,
+		"text": "**These instructions apply to Redis 8.10 and above."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 71,
+		"text": "** For versions lower than 8.10, see the [8.8 build instructions](https://github.com/redis/redis/tree/8.8#build-redis-from-source)."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 72,
+		"text": "> **Configuration files**: the build steps below tell you to run\n> `./src/redis-server redis.conf`."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 73,
+		"text": "Release tarballs bake the bundled modules'\n> `loadmodule` lines and per-module settings directly into `redis.conf` during\n> packaging, so an extracted release tarball is ready to run as-is."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 74,
+		"text": "When\n> building from a git checkout instead, that module config lives in the\n> auto-generated `redis-full.conf` produced by `make modules-update` (and\n> regenerated by `make sync-redis-conf`) \u2014 run `./src/redis-server\n> redis-full.conf` there."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 75,
+		"text": "Edit Redis-core settings in\n> [`redis.conf`](redis.conf)."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 76,
+		"text": "See [modules/MODULES.md](modules/MODULES.md)\n> for the full config flow."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 77,
+		"text": "### Install dependencies and build\n\nBuilding Redis with all data structures (JSON, time series, Bloom / cuckoo / count-min / top-k, t-digest, and the Query Engine) needs a build toolchain plus a few version-sensitive dependencies \u2014 GCC/Clang, **LLVM 21**, **CMake 3.25\u20133.31.6**, **Rust 1.94**, OpenSSL, Python 3, and assorted `-dev` libraries."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 78,
+		"text": "Instead of a per-OS package list, the repo installs them for you with **`make bootstrap`**, which detects your OS and installs each bundled module's prerequisites."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 79,
+		"text": "> **CMake version range matters."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 80,
+		"text": "** The modules require **3.25 \u2264 CMake \u2264 3.31.6** \u2014 CMake 4.x is *not* supported and the build will fail with it."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 81,
+		"text": "On distros that ship CMake 4.x by default (e.g."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 82,
+		"text": "Ubuntu 26.04), pin a supported version, e.g."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 83,
+		"text": "`pip3 install 'cmake==3.31.6'`."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 84,
+		"text": "Note `make bootstrap` only installs CMake when it's missing or too old; it won't downgrade a pre-installed 4.x, so remove/pin that yourself."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 85,
+		"text": "#### 1."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 86,
+		"text": "Get the source\n\nEither works \u2014 the release tarball already bundles the module sources; a git checkout needs one extra step to fetch them:\n\n```sh\n# A) Release tarball (recommended for building/running a release)."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 87,
+		"text": "#    Replace <version>, e.g."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 88,
+		"text": "8.10.0 \u2014 extracts into redis-<version>/:\nwget -O redis-<version>.tar.gz https://github.com/redis/redis/releases/download/<version>/redis-full.tar.gz\ntar xvf redis-<version>.tar.gz && cd redis-<version>\n\n# B) git checkout \u2014 clone the bundled modules once:\ngit clone https://github.com/redis/redis.git && cd redis\nmake modules-update\n```\n\n#### 2."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 89,
+		"text": "Install the build dependencies\n\nPick whichever option fits your environment:\n\n1."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 90,
+		"text": "**Build inside the Docker build environment \u2014 recommended."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 91,
+		"text": "**\n   The repo ships [`docker/Dockerfile.noble`](docker/Dockerfile.noble) (Ubuntu 24.04) with every prerequisite baked in, so you build inside the container and never touch your host toolchain:\n\n   ```bash\n   docker build -f docker/Dockerfile.noble -t redis-build:noble ."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 92,
+		"text": "# Multi-arch (requires `docker buildx` configured):\n   docker buildx build --platform linux/amd64,linux/arm64 \\\n       -f docker/Dockerfile.noble -t redis-build:noble ."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 93,
+		"text": "# Build with the working tree mounted:\n   docker run --rm -it -v \"$PWD\":/workspace -w /workspace redis-build:noble \\\n       bash -lc 'make -j\"$(nproc)\" && make run'\n   ```\n\n2."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 94,
+		"text": "**Install everything on a fresh machine or container."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 95,
+		"text": "**\n   On a clean environment (for example a throwaway `ubuntu:24.04` container), let bootstrap install every prerequisite for Redis core and all cloned modules:\n\n   ```sh\n   make bootstrap\n   ```\n\n   > \u26a0\ufe0f `make bootstrap` installs system packages and may **override existing versions** of shared tools (compiler, CMake, LLVM, \u2026)."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 96,
+		"text": "Prefer option 1, or run it in a disposable container, if that matters on your machine."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 97,
+		"text": "3."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 98,
+		"text": "**See only what's missing."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 99,
+		"text": "**\n   To inspect which prerequisites are absent *before* installing anything, print one deduped list across Redis core and all modules:\n\n   ```sh\n   make bootstrap list\n   ```\n\n   Then install just the reported packages yourself."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 100,
+		"text": "(Version-gated deps are shown as `name (>= X)`; optional test/coverage deps are listed separately and don't fail the check.)"
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 101,
+		"text": "4."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 102,
+		"text": "**Get the exact install commands to copy-paste."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 103,
+		"text": "**\n   To run exactly what `make bootstrap` would, but only for the missing dependencies, use dry-run \u2014 it prints the precise install command for each missing dependency and installs nothing:\n\n   ```sh\n   make bootstrap dry-run\n   ```\n\n   The commands are printed **per module**, so a dependency shared by several\n   modules appears once for each."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 104,
+		"text": "Work through them iteratively:\n\n   1."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 105,
+		"text": "Copy-paste the commands for a module to install its dependencies."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 106,
+		"text": "2."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 107,
+		"text": "Re-run `make bootstrap dry-run` \u2014 the deps you just installed no longer\n      show, so you now see only what's still missing for the remaining modules."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 108,
+		"text": "3."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 109,
+		"text": "Repeat until `make bootstrap dry-run` prints no install commands."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 110,
+		"text": "> **Manual, per-OS install** (no Docker, and you'd rather not let `make bootstrap` touch your host): follow the per-OS dependency instructions in the 8.8 README, which still lists them explicitly \u2014 <https://github.com/redis/redis/tree/8.8#readme>."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 111,
+		"text": "#### 3."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 112,
+		"text": "Build and run\n\n```sh\nexport BUILD_TLS=yes            # optional \u2014 TLS support (needs OpenSSL dev libs)\nmake -j \"$(nproc)\"\n\n# Release tarball (module config is baked into redis.conf):\n./src/redis-server redis.conf\n# From a git checkout, use the auto-generated module config instead:\n./src/redis-server redis-full.conf\n```\n\n`make` (same as `make build` / `make all`) builds whatever is cloned under `modules/*/src` alongside Redis core."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 113,
+		"text": "To build just the core data structures \u2014 even with modules cloned \u2014 use `make build redis`."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 114,
+		"text": "### Building Redis - flags and general notes\n\nRedis can be compiled and used on Linux, OSX, OpenBSD, NetBSD, FreeBSD."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 115,
+		"text": "We support big endian and little endian architectures, and both 32 bit and 64-bit systems."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 116,
+		"text": "It may compile on Solaris derived systems (for instance SmartOS) but our support for this platform is _best effort_ and Redis is not guaranteed to work as well as on Linux, OSX, and \\*BSD."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 117,
+		"text": "To build Redis with all the data structures (including JSON, time series, Bloom filter, cuckoo filter, count-min sketch, top-k, and t-digest) and with Redis Query Engine, make sure first that all the prerequisites are installed (see [Install dependencies and build](#install-dependencies-and-build) above), then clone the bundled modules once and build:\n\n```sh\nmake modules-update\nmake\n```\n\n`make` (same as `make build` / `make all`) always builds whatever's cloned under `modules/*/src` alongside Redis core \u2014 there's no separate flag to opt in."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 118,
+		"text": "If nothing is cloned yet, you get a core-only build."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 119,
+		"text": "To build Redis with just the core data structures \u2014 even if modules are already cloned \u2014 use:\n\n```sh\nmake build redis\n```\n\nTo build with TLS support, you need OpenSSL development libraries (e.g."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 120,
+		"text": "libssl-dev on Debian/Ubuntu) and the following flag in the make command:\n\n```sh\nmake BUILD_TLS=yes\n```\n\nTo build with systemd support, you need systemd development libraries (such as libsystemd-dev on Debian/Ubuntu or systemd-devel on CentOS), and the following flag:\n\n```sh\nmake USE_SYSTEMD=yes\n```\n\nTo append a suffix to Redis program names, add the following flag:\n\n```sh\nmake PROG_SUFFIX=\"-alt\"\n```\n\nYou can build a 32 bit Redis binary using:\n\n```sh\nmake 32bit\n```\n\nAfter building Redis, it is a good idea to test it using:\n\n```sh\nmake test\n```\n\nIf TLS is built, running the tests with TLS enabled (you will need `tcl-tls` installed):\n\n```sh\n./utils/gen-test-certs.sh\n./runtest --tls\n```\n\nRedis supports compression of replication stream via zstd as of 8.10."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 121,
+		"text": "To build with compression support you have to install zstd development libraries (e.g libzstd-dev on Debian/Ubuntu) and use the following flag when invoking the make command:\n\n```sh\nmake BUILD_COMPRESSION=yes\n```\n\n### Fixing build problems with dependencies or cached build options\n\nRedis has some dependencies which are included in the `deps` directory."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 122,
+		"text": "`make` does not automatically rebuild dependencies even if something in the source code of dependencies changes."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 123,
+		"text": "When you update the source code with `git pull` or when code inside the dependencies tree is modified in any other way, make sure to use the following command in order to really clean everything and rebuild from scratch:\n\n```sh\nmake distclean\n```\n\nThis will clean: jemalloc, lua, hiredis, linenoise and other dependencies."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 124,
+		"text": "Also, if you force certain build options like 32bit target, no C compiler optimizations (for debugging purposes), and other similar build time options, those options are cached indefinitely until you issue a `make distclean`\ncommand."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 125,
+		"text": "### Fixing problems building 32 bit binaries\n\nIf after building Redis with a 32 bit target you need to rebuild it\nwith a 64 bit target, or the other way around, you need to perform a `make distclean` in the root directory of the Redis distribution."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 126,
+		"text": "In case of build errors when trying to build a 32 bit binary of Redis, try the following steps:\n\n- Install the package libc6-dev-i386 (also try g++-multilib)."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 127,
+		"text": "- Try using the following command line instead of `make 32bit`:\n  `make CFLAGS=\"-m32 -march=native\" LDFLAGS=\"-m32\"`\n\n### Allocator\n\nSelecting a non-default memory allocator when building Redis is done by setting the `MALLOC` environment variable."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 128,
+		"text": "Redis is compiled and linked against libc malloc by default, except for jemalloc being the default on Linux systems."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 129,
+		"text": "This default was picked because jemalloc has proven to have fewer fragmentation problems than libc malloc."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 130,
+		"text": "To force compiling against libc malloc, use:\n\n```sh\nmake MALLOC=libc\n```\n\nTo compile against jemalloc on Mac OS X systems, use:\n\n```sh\nmake MALLOC=jemalloc\n```\n\n### Monotonic clock\n\nBy default, Redis will build using the POSIX clock_gettime function as the monotonic clock source."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 131,
+		"text": "On most modern systems, the internal processor clock can be used to improve performance."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 132,
+		"text": "Cautions can be found here: http://oliveryang.net/2015/09/pitfalls-of-TSC-usage/\n\nOn ARM aarch64 systems, the hardware clock is enabled by default because the ARM Generic Timer is architecturally guaranteed to be available and monotonic on all ARMv8-A processors (see the *\u201cThe Generic Timer in AArch64 state\u201d* section of the *Arm Architecture Reference Manual for Armv8-A*)."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 133,
+		"text": "To build with support for the processor's internal instruction clock on other architectures, use:\n\n```sh\nmake CFLAGS=\"-DUSE_PROCESSOR_CLOCK\"\n```\n\n### Verbose build\n\nRedis will build with a user-friendly colorized output by default."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 134,
+		"text": "If you want to see a more verbose output, use the following:\n\n```sh\nmake V=1\n```\n\n### Running Redis with TLS\n\nPlease consult the [TLS.md](TLS.md) file for more information on how to use Redis with TLS."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 135,
+		"text": "### Running Redis with the Query Engine and optional proprietary Intel SVS-VAMANA optimisations\n\n**License Disclaimer**\nIf you are using Redis Open Source under AGPLv3 or SSPLv1, you cannot use it together with the Intel Optimizations (Leanvec and LVQ binaries)."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 136,
+		"text": "The reason is that the Intel SVS license is not compatible with those licenses."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 137,
+		"text": "The Leanvec and LVQ techniques are closed source and are only available for use with Redis Open Source when distributed under the RSALv2 license."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 138,
+		"text": "For more details, please refer to the information provided by Intel [here](https://github.com/intel/ScalableVectorSearch)."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 139,
+		"text": "By default, Redis with the Redis Query Engine supports SVS-VAMANA index with global 8-bit quantisation."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 140,
+		"text": "To compile Redis with the Intel SVS-VAMANA optimisations, LeanVec and LVQ, use the following:\n\n```sh\nmake BUILD_INTEL_SVS_OPT=yes\n```\n\nAlternatively, you can export the variable before running the build step for your platform:\n\n```sh\nexport BUILD_INTEL_SVS_OPT=yes\nmake\n```\n\n\n## Code contributions\n\nBy contributing code to the Redis project in any form, including sending a pull request via GitHub, a code fragment or patch via private email or public discussion groups, you agree to release your code under the terms of the Redis Software Grant and Contributor License Agreement."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 141,
+		"text": "Please see the CONTRIBUTING.md file in this source distribution for more information."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 142,
+		"text": "For security bugs and vulnerabilities, please see SECURITY.md and the description of the ability of users to backport security patches under Redis Open Source 7.4+ under BSDv3."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 143,
+		"text": "Open Source Redis releases are subject to the following licenses:\n\n1."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 144,
+		"text": "Version 7.2.x and prior releases are subject to BSDv3."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 145,
+		"text": "These contributions to the original Redis core project are owned by their contributors and licensed under the 3BSDv3 license as referenced in the REDISCONTRIBUTIONS.txt file."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 146,
+		"text": "Any copy of that license in this repository applies only to those contributions;\n\n2."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 147,
+		"text": "Versions 7.4.x to 7.8.x are subject to your choice of RSALv2 or SSPLv1; and\n\n3."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 148,
+		"text": "Version 8.0.x and subsequent releases are subject to the tri-license RSALv2/SSPLv1/AGPLv3 at your option as referenced in the LICENSE.txt file."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 149,
+		"text": "## Redis Trademarks\n\nThe purpose of a trademark is to identify the goods and services of a person or company without causing confusion."
+	},
+	{
+		"doc_id": "redis",
+		"chunk_id": 150,
+		"text": "As the registered owner of its name and logo, Redis accepts certain limited uses of its trademarks, but it has requirements that must be followed as described in its Trademark Guidelines available at: https://redis.io/legal/trademark-policy/."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 0,
+		"text": "<div align=\"center\">\n  <img src=\"https://www.tensorflow.org/images/tf_logo_horizontal.png\">\n</div>\n\n[!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 1,
+		"text": "[Python](https://img.shields.io/pypi/pyversions/tensorflow.svg)](https://badge.fury.io/py/tensorflow)\n[!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 2,
+		"text": "[PyPI](https://badge.fury.io/py/tensorflow.svg)](https://badge.fury.io/py/tensorflow)\n[!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 3,
+		"text": "[DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4724125.svg)](https://doi.org/10.5281/zenodo.4724125)\n[!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 4,
+		"text": "[CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1486/badge)](https://bestpractices.coreinfrastructure.org/projects/1486)\n[!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 5,
+		"text": "[OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/tensorflow/tensorflow/badge)](https://securityscorecards.dev/viewer/?uri=github.com/tensorflow/tensorflow)\n[!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 6,
+		"text": "[Fuzzing Status](https://oss-fuzz-build-logs.storage.googleapis.com/badges/tensorflow.svg)](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:tensorflow)\n[!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 7,
+		"text": "[Fuzzing Status](https://oss-fuzz-build-logs.storage.googleapis.com/badges/tensorflow-py.svg)](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:tensorflow-py)\n[!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 8,
+		"text": "[OSSRank](https://shields.io/endpoint?url=https://ossrank.com/shield/44)](https://ossrank.com/p/44)\n[!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 9,
+		"text": "[Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)\n\n**`Documentation`** |\n------------------- |\n[!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 10,
+		"text": "[Documentation](https://img.shields.io/badge/api-reference-blue.svg)](https://www.tensorflow.org/api_docs/) |\n\n[TensorFlow](https://www.tensorflow.org/) is an end-to-end open source platform\nfor machine learning."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 11,
+		"text": "It has a comprehensive, flexible ecosystem of\n[tools](https://www.tensorflow.org/resources/tools),\n[libraries](https://www.tensorflow.org/resources/libraries-extensions), and\n[community](https://www.tensorflow.org/community) resources that lets\nresearchers push the state-of-the-art in ML and developers easily build and\ndeploy ML-powered applications."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 12,
+		"text": "TensorFlow was originally developed by researchers and engineers working within\nthe Machine Intelligence team at Google Brain to conduct research in machine\nlearning and neural networks."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 13,
+		"text": "However, the framework is versatile enough to be\nused in other areas as well."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 14,
+		"text": "TensorFlow provides stable [Python](https://www.tensorflow.org/api_docs/python)\nand [C++](https://www.tensorflow.org/api_docs/cc) APIs, as well as a\nnon-guaranteed backward compatible API for\n[other languages](https://www.tensorflow.org/api_docs)."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 15,
+		"text": "Keep up-to-date with release announcements and security updates by subscribing\nto\n[announce@tensorflow.org](https://groups.google.com/a/tensorflow.org/forum/#!forum/announce)."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 16,
+		"text": "See all the [mailing lists](https://www.tensorflow.org/community/forums)."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 17,
+		"text": "## Install\n\nSee the [TensorFlow install guide](https://www.tensorflow.org/install) for the\n[pip package](https://www.tensorflow.org/install/pip), to\n[enable GPU support](https://www.tensorflow.org/install/gpu), use a\n[Docker container](https://www.tensorflow.org/install/docker), and\n[build from source](https://www.tensorflow.org/install/source)."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 18,
+		"text": "To install the current release, which includes support for\n[CUDA-enabled GPU cards](https://www.tensorflow.org/install/gpu) *(Ubuntu and\nWindows)*:\n\n```\n pip install tensorflow\n```\n\nOther devices (DirectX and MacOS-metal) are supported using\n[Device Plugins](https://www.tensorflow.org/install/gpu_plugins#available_devices)."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 19,
+		"text": "A smaller CPU-only TensorFlow package is also available:\n\n```\n pip install tensorflow-cpu\n```\n\nTo update TensorFlow to the latest version, add the `--upgrade` flag to the\ncommands above."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 20,
+		"text": "*Nightly binaries are available for testing using the\n[tf-nightly](https://pypi.python.org/pypi/tf-nightly) and\n[tf-nightly-cpu](https://pypi.python.org/pypi/tf-nightly-cpu) packages on PyPI."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 21,
+		"text": "*\n\n#### *Try your first TensorFlow program*\n\n```shell\n$ python\n```\n\n```python\n>>> import tensorflow as tf\n>>> tf.add(1, 2).numpy()\n3\n>>> hello = tf.constant('Hello, TensorFlow!')"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 22,
+		"text": ">>> hello.numpy()\nb'Hello, TensorFlow!'"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 23,
+		"text": "```\n\nFor more examples, see the\n[TensorFlow Tutorials](https://www.tensorflow.org/tutorials/)."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 24,
+		"text": "## Contribution guidelines\n\n**If you want to contribute to TensorFlow, be sure to review the\n[Contribution Guidelines](CONTRIBUTING.md)."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 25,
+		"text": "This project adheres to TensorFlow's\n[Code of Conduct](CODE_OF_CONDUCT.md)."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 26,
+		"text": "By participating, you are expected to\nuphold this code."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 27,
+		"text": "**\n\n**We use [GitHub Issues](https://github.com/tensorflow/tensorflow/issues) for\ntracking requests and bugs, please see\n[TensorFlow Forum](https://discuss.tensorflow.org/) for general questions and\ndiscussion, and please direct specific questions to\n[Stack Overflow](https://stackoverflow.com/questions/tagged/tensorflow)."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 28,
+		"text": "**\n\nThe TensorFlow project strives to abide by generally accepted best practices in\nopen-source software development."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 29,
+		"text": "## Patching guidelines\n\nFollow these steps to patch a specific version of TensorFlow, for example, to\napply fixes to bugs or security vulnerabilities:\n\n*   Clone the TensorFlow repository and switch to the appropriate branch for\n    your desired version\u2014for example, `r2.8` for version 2.8."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 30,
+		"text": "*   Apply the desired changes (i.e., cherry-pick them) and resolve any code\n    conflicts."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 31,
+		"text": "*   Run TensorFlow tests and ensure they pass."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 32,
+		"text": "*   [Build](https://www.tensorflow.org/install/source) the TensorFlow pip\n    package from source."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 33,
+		"text": "## Continuous build status\n\nYou can find more community-supported platforms and configurations in the\n[TensorFlow SIG Build Community Builds Table](https://github.com/tensorflow/build#community-supported-tensorflow-builds)."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 34,
+		"text": "### Official Builds\n\nBuild Type                    | Status                                                                                                                                                                           | Artifacts\n----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------\n**Linux CPU**                 | [!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 35,
+		"text": "[Status](https://storage.googleapis.com/tensorflow-kokoro-build-badges/ubuntu-cc.svg)](https://storage.googleapis.com/tensorflow-kokoro-build-badges/ubuntu-cc.html)           | [PyPI](https://pypi.org/project/tf-nightly/)\n**Linux GPU**                 | [!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 36,
+		"text": "[Status](https://storage.googleapis.com/tensorflow-kokoro-build-badges/ubuntu-gpu-py3.svg)](https://storage.googleapis.com/tensorflow-kokoro-build-badges/ubuntu-gpu-py3.html) | [PyPI](https://pypi.org/project/tf-nightly-gpu/)\n**Linux XLA**                 | [!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 37,
+		"text": "[Status](https://storage.googleapis.com/tensorflow-kokoro-build-badges/ubuntu-xla.svg)](https://storage.googleapis.com/tensorflow-kokoro-build-badges/ubuntu-xla.html)         | TBA\n**macOS**                     | [!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 38,
+		"text": "[Status](https://storage.googleapis.com/tensorflow-kokoro-build-badges/macos-py2-cc.svg)](https://storage.googleapis.com/tensorflow-kokoro-build-badges/macos-py2-cc.html)     | [PyPI](https://pypi.org/project/tf-nightly/)\n**Windows CPU**               | [!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 39,
+		"text": "[Status](https://storage.googleapis.com/tensorflow-kokoro-build-badges/windows-cpu.svg)](https://storage.googleapis.com/tensorflow-kokoro-build-badges/windows-cpu.html)       | [PyPI](https://pypi.org/project/tf-nightly/)\n**Windows GPU**               | [!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 40,
+		"text": "[Status](https://storage.googleapis.com/tensorflow-kokoro-build-badges/windows-gpu.svg)](https://storage.googleapis.com/tensorflow-kokoro-build-badges/windows-gpu.html)       | [PyPI](https://pypi.org/project/tf-nightly-gpu/)\n**Android**                   | [!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 41,
+		"text": "[Status](https://storage.googleapis.com/tensorflow-kokoro-build-badges/android.svg)](https://storage.googleapis.com/tensorflow-kokoro-build-badges/android.html)               | [Download](https://bintray.com/google/tensorflow/tensorflow/_latestVersion)\n**Raspberry Pi 0 and 1**      | [!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 42,
+		"text": "[Status](https://storage.googleapis.com/tensorflow-kokoro-build-badges/rpi01-py3.svg)](https://storage.googleapis.com/tensorflow-kokoro-build-badges/rpi01-py3.html)           | [Py3](https://storage.googleapis.com/tensorflow-nightly/tensorflow-1.10.0-cp34-none-linux_armv6l.whl)\n**Raspberry Pi 2 and 3**      | [!"
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 43,
+		"text": "[Status](https://storage.googleapis.com/tensorflow-kokoro-build-badges/rpi23-py3.svg)](https://storage.googleapis.com/tensorflow-kokoro-build-badges/rpi23-py3.html)           | [Py3](https://storage.googleapis.com/tensorflow-nightly/tensorflow-1.10.0-cp34-none-linux_armv7l.whl)\n\n## Resources\n\n*   [TensorFlow.org](https://www.tensorflow.org)\n*   [TensorFlow Tutorials](https://www.tensorflow.org/tutorials/)\n*   [TensorFlow Official Models](https://github.com/tensorflow/models/tree/master/official)\n*   [TensorFlow Examples](https://github.com/tensorflow/examples)\n*   [TensorFlow Codelabs](https://codelabs.developers.google.com/?cat=TensorFlow)\n*   [TensorFlow Blog](https://blog.tensorflow.org)\n*   [Learn ML with TensorFlow](https://www.tensorflow.org/resources/learn-ml)\n*   [TensorFlow Twitter](https://twitter.com/tensorflow)\n*   [TensorFlow YouTube](https://www.youtube.com/channel/UC0rqucBdTuFTjJiefW5t-IQ)\n*   [TensorFlow model optimization roadmap](https://www.tensorflow.org/model_optimization/guide/roadmap)\n*   [TensorFlow White Papers](https://www.tensorflow.org/about/bib)\n*   [TensorBoard Visualization Toolkit](https://github.com/tensorflow/tensorboard)\n*   [TensorFlow Code Search](https://cs.opensource.google/tensorflow/tensorflow)\n\nLearn more about the\n[TensorFlow Community](https://www.tensorflow.org/community) and how to\n[Contribute](https://www.tensorflow.org/community/contribute)."
+	},
+	{
+		"doc_id": "tf",
+		"chunk_id": 44,
+		"text": "## Courses\n\n* [Coursera](https://www.coursera.org/search?query=TensorFlow)\n* [Udacity](https://www.udacity.com/courses/all?search=TensorFlow)\n* [Edx](https://www.edx.org/search?q=TensorFlow)\n\n## License\n\n[Apache License 2.0](LICENSE)"
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 0,
+		"text": "<p align=\"center\">\n  <a href=\"https://vercel.com\">\n    <img src=\"https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png\" height=\"96\">\n    <h3 align=\"center\">Vercel</h3>\n  </a>\n</p>\n\n<p align=\"center\">\n  Develop."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 1,
+		"text": "Preview."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 2,
+		"text": "Ship."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 3,
+		"text": "</p>\n\n<p align=\"center\">\n  <a href=\"https://vercel.com/docs\"><strong>Documentation</strong></a> \u00b7\n  <a href=\"https://vercel.com/changelog\"><strong>Changelog</strong></a> \u00b7\n  <a href=\"https://vercel.com/templates\"><strong>Templates</strong></a> \u00b7\n  <a href=\"https://vercel.com/docs/cli\"><strong>CLI</strong></a>\n</p>\n<br/>\n\n## Vercel\n\nVercel\u2019s AI Cloud is a unified platform for building modern applications, giving teams the tools to be flexible, move fast, and stay secure while focusing on their products instead of infrastructure."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 4,
+		"text": "## Deploy\n\nGet started by [importing a project](https://vercel.com/new), [choosing a template](https://vercel.com/templates), or using the [Vercel CLI](https://vercel.com/docs/cli)."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 5,
+		"text": "Then, `git push` to deploy."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 6,
+		"text": "## Native CLI binaries\n\nThe standard npm installation remains unchanged:\n\n```bash\nnpm i -g vercel\n```\n\nNative CLI binaries are distributed separately and do not affect the `vercel` npm package."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 7,
+		"text": "To opt into the native binary and replace existing global `vercel` and `vc` commands, install the native package explicitly:\n\n```bash\nnpm i -g @vercel/vc-native --force\n```\n\nThe `--force` flag allows npm to replace existing global `vercel` and `vc` bin links."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 8,
+		"text": "Users who do not install `@vercel/vc-native` continue using the regular Node.js-based CLI from `npm i -g vercel`."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 9,
+		"text": "Platform-specific packages are also available for direct installation when a specific binary is needed:\n\n```bash\nnpm i -g @vercel/vc-native-darwin-x64 --force\n```\n\n## Documentation\n\nFor details on how to use Vercel, check out our [documentation](https://vercel.com/docs)."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 10,
+		"text": "## Contributing\n\nThis project uses [pnpm](https://pnpm.io/) to install dependencies and run scripts."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 11,
+		"text": "You can use the `vercel` script to run local changes as if you were invoking Vercel CLI."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 12,
+		"text": "For example, `vercel deploy --cwd=/path/to/project` could be run with local changes with `pnpm vercel deploy --cwd=/path/to/project`."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 13,
+		"text": "When contributing to this repository, please first discuss the change you wish to make via [Vercel Community](https://community.vercel.com/tags/c/community/4/cli) with the owners of this repository before submitting a Pull Request."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 14,
+		"text": "Please read our [Code of Conduct](./.github/CODE_OF_CONDUCT.md) and follow it in all your interactions with the project."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 15,
+		"text": "### Local development\n\nThis project is configured in a monorepo, where one repository contains multiple npm packages."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 16,
+		"text": "Dependencies are installed and managed with `pnpm`, not `npm` CLI."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 17,
+		"text": "To get started, execute the following:\n\n```bash\ngit clone https://github.com/vercel/vercel\ncd vercel\ncorepack enable\npnpm install\npnpm build\npnpm lint\npnpm test-unit\n```\n\nMake sure all the tests pass before making changes."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 18,
+		"text": "#### Running Vercel CLI Changes\n\nYou can use `pnpm vercel` from the `cli` package to invoke Vercel CLI with local changes:\n\n```bash\ncd ./packages/cli\npnpm vercel <cli-commands...>\n```\n\nSee [CLI Local Development](./packages/cli#local-development) for more details."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 19,
+		"text": "### Verifying your change\n\nOnce you are done with your changes (we even suggest doing it along the way), make sure all the tests still pass by running:\n\n```bash\npnpm test-unit\n```\n\nfrom the root of the project."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 20,
+		"text": "If any test fails, make sure to fix it along with your changes."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 21,
+		"text": "See [Interpreting test errors](#Interpreting-test-errors) for more information about how the tests are executed, especially the integration tests."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 22,
+		"text": "### Pull Request Process\n\nOnce you are confident that your changes work properly, open a pull request on the main repository."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 23,
+		"text": "The pull request will be reviewed by the maintainers and the tests will be checked by our continuous integration platform."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 24,
+		"text": "### Interpreting test errors\n\nThere are 2 kinds of tests in this repository \u2013 Unit tests and Integration tests."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 25,
+		"text": "Unit tests are run locally with `jest` and execute quickly because they are testing the smallest units of code."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 26,
+		"text": "#### Integration tests\n\nIntegration tests create deployments to your Vercel account using the `test` project name."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 27,
+		"text": "After each test is deployed, the `probes` key is used to check if the response is the expected value."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 28,
+		"text": "If the value doesn't match, you'll see a message explaining the difference."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 29,
+		"text": "If the deployment failed to build, you'll see a more generic message like the following:\n\n```log\n[Error: Fetched page https://test-8ashcdlew.vercel.app/root.js does not contain hello Root!."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 30,
+		"text": "Instead it contains An error occurred with this application."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 31,
+		"text": "NO_STATUS_CODE_FRO Response headers:\n       cache-control=s-maxage=0\n      connection=close\n      content-type=text/plain; charset=utf-8\n      date=Wed, 19 Jun 2019 18:01:37 GMT\n      server=now\n      strict-transport-security=max-age=63072000\n      transfer-encoding=chunked\n      x-now-id=iad1:hgtzj-1560967297876-44ae12559f95\n      x-now-trace=iad1]\n```\n\nIn such cases, you can visit the URL of the failed deployment and append `/_logs` to see the build error."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 32,
+		"text": "In the case above, that would be https://test-8ashcdlew.vercel.app/_logs\n\nThe logs of this deployment will contain the actual error which may help you to understand what went wrong."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 33,
+		"text": "##### Running integration tests locally\n\nWhile running the full integration suite locally is not recommended, it's sometimes useful to isolate a failing test by running it on your machine."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 34,
+		"text": "To do so, you'll need to ensure you have the appropriate credentials sourced in your shell:\n\n1."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 35,
+		"text": "Create an access token."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 36,
+		"text": "Follow the instructions here https://vercel.com/docs/rest-api#creating-an-access-token."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 37,
+		"text": "Ensure the token scope is for your personal\n   account."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 38,
+		"text": "2."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 39,
+		"text": "Grab the team ID from the Vercel dashboard at `https://vercel.com/<MY-TEAM>/~/settings`."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 40,
+		"text": "3."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 41,
+		"text": "Source these into your shell rc file: `echo 'export VERCEL_TOKEN=<MY-TOKEN> VERCEL_TEAM_ID=<MY-TEAM-ID>' >> ~/.zshrc`\n\nFrom there, you should be able to trigger an integration test."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 42,
+		"text": "Choose one\nthat's already isolated to check that things work:\n\n```bash\ncd packages/next\n```\n\nRun the test:\n\n```bash\npnpm test test/fixtures/00-server-build/index.test.js\n```\n\n> [!NOTE]\n> If you receive a `401` status code while fetching the deployment, you need to disable [Deployment Protection](https://vercel.com/docs/security/deployment-protection) on the project."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 43,
+		"text": "#### @vercel/nft\n\nSome of the Builders use `@vercel/nft` to tree-shake files before deployment."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 44,
+		"text": "If you suspect an error with this tree-shaking mechanism, you can create the following script in your project:\n\n```js\nconst { nodeFileTrace } = require('@vercel/nft');\nnodeFileTrace(['path/to/entrypoint.js'], {\n  ts: true,\n  mixedModules: true,\n})\n  .then(o => console.log(o.fileList))\n  .then(e => console.error(e));\n```\n\nWhen you run this script, you'll see all the imported files."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 45,
+		"text": "If files are missing, the bug is in [@vercel/nft](https://github.com/vercel/nft) and not the Builder."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 46,
+		"text": "### Deploy a Builder with existing project\n\nSometimes you want to test changes to a Builder against an existing project, maybe with `vercel dev` or actual deployment."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 47,
+		"text": "You can avoid publishing every Builder change to npm by uploading the Builder as a tarball."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 48,
+		"text": "1."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 49,
+		"text": "Change directory to the desired Builder `cd ./packages/node`\n2."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 50,
+		"text": "Run `pnpm build` to compile typescript and other build steps\n3."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 51,
+		"text": "Run `npm pack` to create a tarball file."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 52,
+		"text": "It is imporant to not use `pnpm pack` because it will not preserve the file permissions\n4."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 53,
+		"text": "Move the resulting tarball to a directory\n5."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 54,
+		"text": "Run `vercel <directory>` to upload the tarball file and get a URL."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 55,
+		"text": "Remember to append `/<tarball name>` to then end of your URL\n6."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 56,
+		"text": "Edit any existing `vercel.json` project and replace `use` with the URL\n7."
+	},
+	{
+		"doc_id": "vercel",
+		"chunk_id": 57,
+		"text": "Run `vercel` or `vercel dev` to deploy with the experimental Builder\n\n**Note:** You will need to turn off vercel authentication in settings -> deployment protection so the builder can be downloaded\n\n## Reference\n\n- [Code of Conduct](./.github/CODE_OF_CONDUCT.md)\n- [Contributing Guidelines](./.github/CONTRIBUTING.md)\n- [Apache 2.0 License](./LICENSE)"
+	}
+]

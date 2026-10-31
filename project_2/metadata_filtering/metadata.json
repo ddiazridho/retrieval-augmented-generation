@@ -1,0 +1,42 @@
+[
+    {
+        "doc_path": "C:/Users/diazr/VSCODE/RAG/data/hermes.md",
+        "category": "ai framework"
+    },
+    {
+        "doc_path": "C:/Users/diazr/VSCODE/RAG/data/keras.md",
+        "category": "ai framework"
+    },
+    {
+        "doc_path": "C:/Users/diazr/VSCODE/RAG/data/kubernetes.md",
+        "category": "web development"
+    },
+    {
+        "doc_path": "C:/Users/diazr/VSCODE/RAG/data/langchain.md",
+        "category": "ai framework"
+    },
+    {
+        "doc_path": "C:/Users/diazr/VSCODE/RAG/data/langgraph.md",
+        "category": "ai framework"
+    },
+    {
+        "doc_path": "C:/Users/diazr/VSCODE/RAG/data/laravel.md",
+        "category": "web development"
+    },
+    {
+        "doc_path": "C:/Users/diazr/VSCODE/RAG/data/pytorch.md",
+        "category": "ai framework"
+    },
+    {
+        "doc_path": "C:/Users/diazr/VSCODE/RAG/data/redis.md",
+        "category": "web development"
+    },
+    {
+        "doc_path": "C:/Users/diazr/VSCODE/RAG/data/tf.md",
+        "category": "ai framework"
+    },
+    {
+        "doc_path": "C:/Users/diazr/VSCODE/RAG/data/vercel.md",
+        "category": "web development"
+    }
+]

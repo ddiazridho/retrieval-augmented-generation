@@ -1,0 +1,379 @@
+[
+    {
+        "query_id": "q01",
+        "query": "Apa perbedaan operator <=> dan <-> di pgvector?",
+        "relevant_doc_ids": [
+            "postgres-pgvector"
+        ],
+        "key_facts": [
+            "<=> adalah operator cosine distance",
+            "<-> adalah operator Euclidean distance atau L2"
+        ],
+        "type": "factual",
+        "hypothesis_answer": "Dalam pgvector, operator `<=>` dan `<->` memiliki fungsi yang berbeda dalam konteks perbandingan vektor. Operator `<=>` digunakan untuk membandingkan dua vektor dan mengembalikan nilai boolean yang menunjukkan apakah kedua vektor tersebut sama atau tidak, dengan hasil `TRUE` jika vektor sama dan `FALSE` sebaliknya. Sebaliknya, operator `<->` digunakan untuk menghitung jarak antara dua vektor, menghasilkan nilai numerik yang menunjukkan seberapa jauh vektor pertama dari vektor kedua, yang berguna dalam konteks pencarian vektor terdekat. Dengan demikian, kedua operator ini melayani tujuan yang berbeda dalam operasi vektor dalam basis data yang mendukung tipe data vektor.",
+        "results": [
+            {
+                "doc_id": "postgres-pgvector",
+                "chunk_id": "postgres-pgvector_chunk_2",
+                "text": "pgvector menyediakan tiga operator jarak: <-> untuk Euclidean distance (L2), <#> untuk negative inner product, dan <=> untuk cosine distance. Untuk kasus embedding dari model bahasa seperti OpenAI atau sentence-transformers, cosine distance (<=>) adalah pilihan paling umum karena embedding tersebut biasanya dioptimalkan berdasarkan kemiripan arah vektor, bukan jarak absolut.",
+                "score": 0.6851196071265166
+            },
+            {
+                "doc_id": "postgres-pgvector",
+                "chunk_id": "postgres-pgvector_chunk_0",
+                "text": "Ekstensi pgvector menambahkan tipe data vector ke PostgreSQL. Aktivasi dilakukan lewat perintah CREATE EXTENSION vector. Kolom didefinisikan dengan menyebutkan dimensinya secara eksplisit, misalnya vector(1536) untuk menyimpan embedding dari model dengan dimensi 1536. Tanpa ekstensi ini, PostgreSQL tidak punya cara native untuk menyimpan atau mengindeks data embedding.",
+                "score": 0.4843494531894483
+            }
+        ]
+    },
+    {
+        "query_id": "q02",
+        "query": "Apa default eviction policy Redis kalau memori penuh?",
+        "relevant_doc_ids": [
+            "redis-caching"
+        ],
+        "key_facts": [
+            "default eviction policy adalah noeviction",
+            "noeviction berarti Redis menolak write baru, bukan menghapus data lama"
+        ],
+        "type": "factual_numeric",
+        "hypothesis_answer": "Redis menggunakan kebijakan pengusiran (eviction policy) default yang disebut \"noeviction\" ketika memori penuh. Dalam mode ini, Redis akan menolak penulisan data baru dan akan tetap mempertahankan data yang ada. Kebijakan ini mencegah kehilangan data yang sudah tersimpan, namun dapat menyebabkan aplikasi yang bergantung pada Redis untuk menulis data baru mengalami kesalahan jika memori telah mencapai batas maksimum yang ditentukan. Untuk mengubah kebijakan ini, pengguna dapat memilih dari beberapa opsi lainnya, seperti \"allkeys-lru\", \"volatile-lru\", \"allkeys-random\", atau \"volatile-random\", sesuai dengan kebutuhan aplikasi.",
+        "results": [
+            {
+                "doc_id": "redis-caching",
+                "chunk_id": "redis-caching_chunk_1",
+                "text": "Kebijakan eviction Redis diatur lewat directive maxmemory-policy. Pilihan yang tersedia antara lain noeviction (default, Redis akan menolak write baru kalau memori penuh alih-alih menghapus data lama), allkeys-lru (hapus key yang paling jarang diakses di seluruh dataset), volatile-lru (sama seperti allkeys-lru tapi hanya berlaku pada key yang punya TTL), dan allkeys-lfu (berdasarkan frekuensi akses, bukan recency).",
+                "score": 0.8709608242147641
+            },
+            {
+                "doc_id": "redis-caching",
+                "chunk_id": "redis-caching_chunk_0",
+                "text": "Redis menyediakan dua mekanisme persistence: RDB (snapshot periodik seluruh dataset ke disk) dan AOF (mencatat setiap write command secara berurutan ke file log). RDB menghasilkan file lebih kecil dan restart lebih cepat, tapi berisiko kehilangan data sejak snapshot terakhir kalau Redis crash. AOF lebih durable karena mencatat hampir setiap perubahan, tapi ukuran file lebih besar dan proses restart lebih lambat karena harus replay seluruh log.",
+                "score": 0.6680284310483647
+            }
+        ]
+    },
+    {
+        "query_id": "q03",
+        "query": "Berapa nilai default parameter m dan ef_construction untuk index HNSW di pgvector?",
+        "relevant_doc_ids": [
+            "postgres-pgvector"
+        ],
+        "key_facts": [
+            "m default 16",
+            "ef_construction default 64"
+        ],
+        "type": "factual_numeric",
+        "hypothesis_answer": "Pada penggunaan indeks HNSW (Hierarchical Navigable Small World) dalam pgvector, nilai default untuk parameter `m` adalah 16, sedangkan untuk parameter `ef_construction` adalah 200. Parameter `m` menentukan jumlah koneksi maksimal untuk setiap node dalam graf, sedangkan `ef_construction` mempengaruhi jumlah titik yang dipertimbangkan selama proses pembangunan indeks, yang berdampak pada kualitas dan kecepatan pencarian. Pengguna dapat menyesuaikan nilai-nilai ini sesuai dengan kebutuhan spesifik aplikasi dan dataset yang digunakan.",
+        "results": [
+            {
+                "doc_id": "postgres-pgvector",
+                "chunk_id": "postgres-pgvector_chunk_1",
+                "text": "Index HNSW di pgvector dibuat lewat perintah CREATE INDEX ... USING hnsw. Dua parameter utamanya adalah m (jumlah koneksi maksimum per node dalam graph, default 16) dan ef_construction (seberapa teliti pencarian tetangga saat index dibangun, default 64). Dibanding index ivfflat, HNSW memberikan query yang lebih cepat namun waktu pembuatan index (build time) yang lebih lama, terutama untuk dataset besar.",
+                "score": 0.7684694158759777
+            },
+            {
+                "doc_id": "postgres-pgvector",
+                "chunk_id": "postgres-pgvector_chunk_0",
+                "text": "Ekstensi pgvector menambahkan tipe data vector ke PostgreSQL. Aktivasi dilakukan lewat perintah CREATE EXTENSION vector. Kolom didefinisikan dengan menyebutkan dimensinya secara eksplisit, misalnya vector(1536) untuk menyimpan embedding dari model dengan dimensi 1536. Tanpa ekstensi ini, PostgreSQL tidak punya cara native untuk menyimpan atau mengindeks data embedding.",
+                "score": 0.44567984787791204
+            }
+        ]
+    },
+    {
+        "query_id": "q04",
+        "query": "Bagaimana cara kerja dependency injection database session di FastAPI?",
+        "relevant_doc_ids": [
+            "fastapi-basics"
+        ],
+        "key_facts": [
+            "menggunakan fungsi Depends()",
+            "dependency bisa disusun bertingkat/nested"
+        ],
+        "type": "factual",
+        "hypothesis_answer": "Dependency injection database session di FastAPI berfungsi untuk mengelola dan menyediakan koneksi basis data secara efisien kepada endpoint aplikasi. Proses ini dimulai dengan mendefinisikan fungsi yang menginisialisasi sesi database menggunakan SQLAlchemy atau library sejenis. Fungsi tersebut kemudian didekorasi dengan `@app.dependencies` untuk menjadi dependency yang dapat diakses oleh endpoint. Saat permintaan diterima, FastAPI secara otomatis memanggil fungsi ini dan menyuntikkan sesi database ke dalam parameter fungsi endpoint. Setelah penggunaan, sesi tersebut dapat ditutup secara otomatis, berkat penggunaan konteks manajer. Dengan cara ini, FastAPI memastikan bahwa setiap permintaan memiliki sesi yang bersih dan aman, sekaligus mengurangi potensi kebocoran sumber daya.",
+        "results": [
+            {
+                "doc_id": "fastapi-basics",
+                "chunk_id": "fastapi-basics_chunk_0",
+                "text": "FastAPI menggunakan sistem dependency injection lewat fungsi Depends(). Contoh penggunaan paling umum adalah injeksi database session ke route handler, sehingga logic pembuatan dan penutupan koneksi tidak perlu diulang di setiap endpoint. Dependency bisa disusun bertingkat (nested), di mana satu dependency memanggil dependency lain, dan FastAPI otomatis meresolusinya sebelum handler dijalankan.",
+                "score": 0.8159479730590592
+            },
+            {
+                "doc_id": "fastapi-basics",
+                "chunk_id": "fastapi-basics_chunk_1",
+                "text": "Route handler di FastAPI bisa didefinisikan sebagai async def atau def biasa. Gunakan async def kalau operasi di dalamnya benar-benar non-blocking (misal query ke database async, HTTP call ke service lain pakai httpx.AsyncClient). Kalau handler memakai def biasa, FastAPI otomatis menjalankannya di threadpool terpisah supaya tidak memblokir event loop utama, tapi ini berarti ada overhead thread management dibanding async native.",
+                "score": 0.5836384285595391
+            }
+        ]
+    },
+    {
+        "query_id": "q05",
+        "query": "Apa bedanya restart policy always dan on-failure di Docker Compose?",
+        "relevant_doc_ids": [
+            "docker-compose"
+        ],
+        "key_facts": [
+            "always me-restart apapun penyebab berhentinya container",
+            "on-failure hanya restart kalau exit code menandakan error"
+        ],
+        "type": "factual",
+        "hypothesis_answer": "Dalam Docker Compose, kebijakan restart (restart policy) menyediakan pengaturan untuk mengelola perilaku kontainer saat terjadi kegagalan atau ketika kontainer dihentikan. Kebijakan \"always\" menjamin bahwa kontainer akan selalu dijalankan kembali, terlepas dari alasan penghentian, baik itu kegagalan, penghentian manual, atau reboot sistem. Sebaliknya, kebijakan \"on-failure\" hanya akan menjalankan kembali kontainer jika proses di dalamnya keluar dengan kode kesalahan (non-zero exit code). Dengan demikian, pemilihan antara \"always\" dan \"on-failure\" bergantung pada kebutuhan operasional, di mana \"always\" cocok untuk layanan yang harus selalu aktif, sementara \"on-failure\" lebih sesuai untuk aplikasi yang dapat mengalami kegagalan sementara dan tidak perlu dijalankan kembali dalam kondisi normal.",
+        "results": [
+            {
+                "doc_id": "docker-compose",
+                "chunk_id": "docker-compose_chunk_1",
+                "text": "Directive healthcheck dipakai untuk memberi tahu Docker cara mengecek apakah container benar-benar sehat, bukan cuma sekadar menyala. Restart policy punya empat opsi: no (default, tidak pernah restart otomatis), always (selalu restart apa pun penyebab berhentinya), on-failure (restart hanya kalau exit code menandakan error), dan unless-stopped (mirip always, tapi tidak restart kalau container dihentikan manual oleh user).",
+                "score": 0.7367900646020598
+            },
+            {
+                "doc_id": "docker-compose",
+                "chunk_id": "docker-compose_chunk_0",
+                "text": "File docker-compose.yml disusun dari beberapa top-level key utama: services (definisi tiap container), volumes (penyimpanan data persisten), dan networks (pengaturan jaringan antar container). Setiap service bisa punya konfigurasi image, ports, environment, dan depends_on untuk menentukan urutan startup antar container.",
+                "score": 0.5108555039015351
+            }
+        ]
+    },
+    {
+        "query_id": "q06",
+        "query": "Strategi apa yang direkomendasikan saat menerima error 429 dari OpenAI API?",
+        "relevant_doc_ids": [
+            "openai-rate-limits"
+        ],
+        "key_facts": [
+            "exponential backoff",
+            "jeda waktu berlipat ganda tiap percobaan",
+            "disarankan menambahkan jitter"
+        ],
+        "type": "factual",
+        "hypothesis_answer": "Saat menerima error 429 dari OpenAI API, yang menunjukkan bahwa batas kuota permintaan telah terlampaui, disarankan untuk menerapkan beberapa strategi mitigasi. Pertama, tinjau dan optimalkan jumlah permintaan yang dikirim dalam periode waktu tertentu untuk memastikan bahwa tidak melebihi batas yang ditetapkan. Kedua, implementasikan mekanisme pengulangan yang eksponensial, di mana sistem secara otomatis menunggu periode waktu tertentu sebelum mencoba kembali pengiriman permintaan, dengan interval yang meningkat setelah setiap kegagalan. Ketiga, monitor penggunaan API secara berkala untuk menyesuaikan pengaturan kuota berdasarkan pola penggunaan yang teridentifikasi. Dengan langkah-langkah ini, pengguna dapat mengurangi kemungkinan terjadinya error 429 dan meningkatkan efisiensi penggunaan OpenAI API.",
+        "results": [
+            {
+                "doc_id": "openai-rate-limits",
+                "chunk_id": "openai-rate-limits_chunk_0",
+                "text": "Rate limit OpenAI API diukur dalam dua satuan: RPM (requests per minute) dan TPM (tokens per minute). Batas keduanya bervariasi tergantung usage tier akun, yang biasanya naik otomatis seiring akumulasi total pembayaran dan lama waktu penggunaan akun. Melebihi salah satu batas ini akan menghasilkan response dengan status code 429.",
+                "score": 0.7227974630636613
+            },
+            {
+                "doc_id": "openai-rate-limits",
+                "chunk_id": "openai-rate-limits_chunk_1",
+                "text": "Strategi yang direkomendasikan untuk menangani error 429 adalah exponential backoff: retry dilakukan dengan jeda waktu yang berlipat ganda di setiap percobaan, dimulai dari base delay tertentu (misalnya 1 detik, lalu 2 detik, 4 detik, dan seterusnya). Menambahkan jitter (variasi acak kecil pada waktu tunggu) juga disarankan untuk mencegah banyak client melakukan retry secara bersamaan pada waktu yang persis sama.",
+                "score": 0.6825015173804341
+            }
+        ]
+    },
+    {
+        "query_id": "q07",
+        "query": "Berapa persen diskon biaya kalau menggunakan OpenAI Batch API, dan berapa lama waktu pemrosesannya?",
+        "relevant_doc_ids": [
+            "openai-rate-limits"
+        ],
+        "key_facts": [
+            "diskon 50%",
+            "hasil dikembalikan dalam jendela waktu hingga 24 jam"
+        ],
+        "type": "factual_numeric",
+        "hypothesis_answer": "Penggunaan OpenAI Batch API memberikan diskon biaya sebesar 20% dibandingkan dengan penggunaan API secara individual. Waktu pemrosesan untuk setiap batch tergantung pada jumlah permintaan dan kompleksitas data yang diproses, namun secara umum, estimasi waktu pemrosesan berkisar antara 2 hingga 5 detik per permintaan dalam satu batch. Pengguna disarankan untuk mempertimbangkan ukuran dan jumlah permintaan dalam batch untuk mengoptimalkan efisiensi biaya dan waktu pemrosesan.",
+        "results": [
+            {
+                "doc_id": "openai-rate-limits",
+                "chunk_id": "openai-rate-limits_chunk_2",
+                "text": "Batch API dari OpenAI menawarkan diskon biaya sebesar 50% dibanding pemanggilan API biasa, dengan syarat hasil dikembalikan dalam jendela waktu hingga 24 jam, bukan secara instan. Batch API cocok untuk workload yang tidak butuh respons real-time, seperti pemrosesan embedding untuk seluruh koleksi dokumen sekaligus atau evaluasi model dalam jumlah besar.",
+                "score": 0.8510316874514197
+            },
+            {
+                "doc_id": "openai-rate-limits",
+                "chunk_id": "openai-rate-limits_chunk_0",
+                "text": "Rate limit OpenAI API diukur dalam dua satuan: RPM (requests per minute) dan TPM (tokens per minute). Batas keduanya bervariasi tergantung usage tier akun, yang biasanya naik otomatis seiring akumulasi total pembayaran dan lama waktu penggunaan akun. Melebihi salah satu batas ini akan menghasilkan response dengan status code 429.",
+                "score": 0.5631042755620437
+            }
+        ]
+    },
+    {
+        "query_id": "q08",
+        "query": "Bagaimana cara mengatur supaya koneksi dari satu klien tidak membanjiri server?",
+        "relevant_doc_ids": [
+            "nginx-reverse-proxy"
+        ],
+        "key_facts": [
+            "diatur lewat limit_req_zone dan limit_req",
+            "menyimpan state per klien di area memori bersama"
+        ],
+        "type": "ambiguous",
+        "notes": "kata 'koneksi' juga muncul di dokumen docker-compose (networks) dan postgres-pgvector (connection ke database), berpotensi salah retrieve ke dokumen yang tidak dimaksud",
+        "hypothesis_answer": "Untuk mencegah banjir koneksi dari satu klien ke server, implementasikan mekanisme throttling yang membatasi jumlah permintaan yang dapat dilakukan oleh klien dalam interval waktu tertentu. Penggunaan algoritma seperti leaky bucket atau token bucket dapat efektif dalam mengatur laju permintaan. Selain itu, konfigurasi timeout untuk koneksi yang tidak aktif dapat membantu membebaskan sumber daya server. Pastikan juga untuk menerapkan batasan pada jumlah koneksi simultan yang diperbolehkan dari satu alamat IP. Monitoring dan logging aktivitas koneksi dari klien dapat memberikan wawasan tambahan untuk analisis dan penyesuaian lebih lanjut.",
+        "results": [
+            {
+                "doc_id": "openai-rate-limits",
+                "chunk_id": "openai-rate-limits_chunk_1",
+                "text": "Strategi yang direkomendasikan untuk menangani error 429 adalah exponential backoff: retry dilakukan dengan jeda waktu yang berlipat ganda di setiap percobaan, dimulai dari base delay tertentu (misalnya 1 detik, lalu 2 detik, 4 detik, dan seterusnya). Menambahkan jitter (variasi acak kecil pada waktu tunggu) juga disarankan untuk mencegah banyak client melakukan retry secara bersamaan pada waktu yang persis sama.",
+                "score": 0.5806949063016122
+            },
+            {
+                "doc_id": "nginx-reverse-proxy",
+                "chunk_id": "nginx-reverse-proxy_chunk_1",
+                "text": "Rate limiting di Nginx diatur lewat dua directive: limit_req_zone (mendefinisikan area memori bersama untuk menyimpan state per klien) dan limit_req (menerapkan limit tersebut di lokasi tertentu). Contoh konfigurasi zone dengan ukuran 10m mampu menyimpan state kurang lebih 160.000 alamat IP unik, karena tiap entri IP membutuhkan sekitar 64 byte memori.",
+                "score": 0.5421111872284986
+            }
+        ]
+    },
+    {
+        "query_id": "q09",
+        "query": "Bagaimana strategi menggabungkan retry dan caching supaya biaya panggilan API ke LLM lebih hemat?",
+        "relevant_doc_ids": [
+            "openai-rate-limits",
+            "redis-caching"
+        ],
+        "key_facts": [
+            "exponential backoff untuk menangani rate limit",
+            "Redis bisa dipakai untuk cache hasil supaya tidak perlu panggil API berulang untuk query yang sama"
+        ],
+        "type": "multi_doc",
+        "hypothesis_answer": "Strategi penggabungan retry dan caching dalam panggilan API ke Large Language Model (LLM) bertujuan untuk mengurangi biaya dan meningkatkan efisiensi. Implementasi caching dapat dilakukan dengan menyimpan hasil respons dari panggilan API yang berhasil untuk permintaan yang sama di masa mendatang, sehingga menghindari pemanggilan berulang yang tidak perlu. Retry mechanism diterapkan untuk menangani kegagalan sementara, dengan batasan jumlah percobaan dan interval waktu yang ditentukan, guna memastikan bahwa permintaan tetap diproses tanpa membebani sistem. Kombinasi ini memungkinkan sistem untuk menggunakan hasil cache ketika tersedia, dan hanya melakukan panggilan API ketika tidak ada data yang relevan dalam cache atau ketika semua percobaan retry telah dilakukan tanpa sukses. Dengan demikian, strategi ini tidak hanya menghemat biaya, tetapi juga meningkatkan responsivitas aplikasi.",
+        "results": [
+            {
+                "doc_id": "openai-rate-limits",
+                "chunk_id": "openai-rate-limits_chunk_1",
+                "text": "Strategi yang direkomendasikan untuk menangani error 429 adalah exponential backoff: retry dilakukan dengan jeda waktu yang berlipat ganda di setiap percobaan, dimulai dari base delay tertentu (misalnya 1 detik, lalu 2 detik, 4 detik, dan seterusnya). Menambahkan jitter (variasi acak kecil pada waktu tunggu) juga disarankan untuk mencegah banyak client melakukan retry secara bersamaan pada waktu yang persis sama.",
+                "score": 0.5220865759005933
+            },
+            {
+                "doc_id": "openai-rate-limits",
+                "chunk_id": "openai-rate-limits_chunk_2",
+                "text": "Batch API dari OpenAI menawarkan diskon biaya sebesar 50% dibanding pemanggilan API biasa, dengan syarat hasil dikembalikan dalam jendela waktu hingga 24 jam, bukan secara instan. Batch API cocok untuk workload yang tidak butuh respons real-time, seperti pemrosesan embedding untuk seluruh koleksi dokumen sekaligus atau evaluasi model dalam jumlah besar.",
+                "score": 0.5130985316013772
+            }
+        ]
+    },
+    {
+        "query_id": "q10",
+        "query": "Bagaimana cara setup Kubernetes ingress dengan cert-manager untuk auto-renewal SSL?",
+        "relevant_doc_ids": [],
+        "key_facts": [],
+        "type": "unanswerable",
+        "notes": "sengaja tidak ada di corpus manapun - dipakai untuk menguji apakah sistem jujur bilang tidak tahu, atau malah mengarang jawaban dengan mencampur konsep SSL dari dokumen nginx",
+        "hypothesis_answer": "Untuk melakukan setup Kubernetes ingress dengan cert-manager guna auto-renewal SSL, langkah pertama adalah menginstal cert-manager pada kluster Kubernetes menggunakan Helm. Setelah instalasi, buat Custom Resource Definition (CRD) untuk cert-manager yang memungkinkan pengelolaan sertifikat. Kemudian, buat Secret yang berisi informasi domain dan email yang akan digunakan untuk sertifikat SSL. Selanjutnya, definisikan Ingress Resource yang mencakup anotasi cert-manager yang diperlukan, seperti `cert-manager.io/issuer` dan `cert-manager.io/acme-challenge-type`. Pastikan juga untuk membuat Issuer atau ClusterIssuer yang sesuai dengan tipe ACME, serta konfigurasi untuk mengarahkan permintaan sertifikat ke Let's Encrypt. Setelah semua sumber daya didefinisikan, cert-manager akan secara otomatis mengelola pengeluaran dan perpanjangan sertifikat SSL sesuai dengan kebijakan yang telah ditentukan. Pastikan untuk memonitor log cert-manager untuk memastikan bahwa proses auto-renewal berjalan dengan",
+        "results": [
+            {
+                "doc_id": "nginx-reverse-proxy",
+                "chunk_id": "nginx-reverse-proxy_chunk_2",
+                "text": "SSL termination berarti proses enkripsi/dekripsi HTTPS ditangani di level Nginx, sementara komunikasi antara Nginx dan server backend bisa berjalan lewat HTTP biasa tanpa enkripsi tambahan. Konfigurasinya memakai directive ssl_certificate dan ssl_certificate_key yang menunjuk ke file sertifikat dan private key. Pendekatan ini menyederhanakan pengelolaan sertifikat karena cukup dipasang di satu titik saja, bukan di setiap server backend.",
+                "score": 0.4710016993461604
+            },
+            {
+                "doc_id": "docker-compose",
+                "chunk_id": "docker-compose_chunk_0",
+                "text": "File docker-compose.yml disusun dari beberapa top-level key utama: services (definisi tiap container), volumes (penyimpanan data persisten), dan networks (pengaturan jaringan antar container). Setiap service bisa punya konfigurasi image, ports, environment, dan depends_on untuk menentukan urutan startup antar container.",
+                "score": 0.35264133450790763
+            }
+        ]
+    },
+    {
+        "query_id": "q11",
+        "query": "Apa bedanya named volume dan bind mount di Docker?",
+        "relevant_doc_ids": [
+            "docker-compose"
+        ],
+        "key_facts": [
+            "named volume dikelola Docker, disimpan di lokasi internal",
+            "bind mount menghubungkan langsung ke path di filesystem host"
+        ],
+        "type": "factual",
+        "hypothesis_answer": "Dalam konteks Docker, perbedaan utama antara named volume dan bind mount terletak pada cara penyimpanan dan pengelolaan data. Named volume adalah lokasi penyimpanan yang dikelola oleh Docker, di mana Docker secara otomatis mengatur lokasi fisik dan penghapusan data saat volume tidak lagi digunakan. Named volume lebih portable dan direkomendasikan untuk penggunaan dalam konteks kontainer, karena dapat dengan mudah dipindahkan antar host Docker. Sebaliknya, bind mount mengacu pada pemetaan langsung ke direktori atau file di sistem host, memungkinkan akses langsung ke data yang ada di luar kontainer. Meskipun bind mount memberikan fleksibilitas lebih dalam mengakses data dari host, ia juga memerlukan manajemen lebih lanjut oleh pengguna dan dapat menyebabkan masalah kompatibilitas jika struktur direktori berubah.",
+        "results": [
+            {
+                "doc_id": "docker-compose",
+                "chunk_id": "docker-compose_chunk_2",
+                "text": "Named volume dikelola sepenuhnya oleh Docker dan disimpan di lokasi internal (biasanya di bawah /var/lib/docker/volumes), sementara bind mount menghubungkan langsung ke path spesifik di filesystem host. Named volume lebih portable antar environment karena tidak bergantung pada struktur folder host, sementara bind mount lebih mudah untuk keperluan development karena perubahan file di host langsung terlihat di container tanpa rebuild.",
+                "score": 0.8897510721794512
+            },
+            {
+                "doc_id": "docker-compose",
+                "chunk_id": "docker-compose_chunk_0",
+                "text": "File docker-compose.yml disusun dari beberapa top-level key utama: services (definisi tiap container), volumes (penyimpanan data persisten), dan networks (pengaturan jaringan antar container). Setiap service bisa punya konfigurasi image, ports, environment, dan depends_on untuk menentukan urutan startup antar container.",
+                "score": 0.5282060781180511
+            }
+        ]
+    },
+    {
+        "query_id": "q12",
+        "query": "Apa yang terjadi kalau subscriber sedang offline saat ada pesan dikirim lewat Redis pub/sub?",
+        "relevant_doc_ids": [
+            "redis-caching"
+        ],
+        "key_facts": [
+            "pesan hilang permanen",
+            "tidak dikirim ulang saat subscriber kembali online"
+        ],
+        "type": "factual",
+        "hypothesis_answer": "Dalam sistem Redis pub/sub, jika seorang subscriber dalam keadaan offline pada saat pesan dikirim, pesan tersebut tidak akan diterima oleh subscriber tersebut. Redis tidak menyimpan pesan yang dikirimkan melalui saluran pub/sub untuk diterima di kemudian hari. Oleh karena itu, semua pesan yang diterbitkan saat subscriber offline akan hilang dan tidak dapat diakses setelah subscriber kembali online. Untuk memastikan pesan tidak hilang, disarankan untuk menggunakan mekanisme penyimpanan pesan tambahan, seperti Redis Streams atau sistem antrian pesan lainnya, yang dapat menyimpan pesan untuk pengambilan di kemudian hari.",
+        "results": [
+            {
+                "doc_id": "redis-caching",
+                "chunk_id": "redis-caching_chunk_2",
+                "text": "Model pub/sub di Redis bekerja lewat command PUBLISH dan SUBSCRIBE. Publisher mengirim pesan ke sebuah channel, dan semua subscriber yang sedang mendengarkan channel itu akan menerima pesan secara real-time. Karakteristik penting: pesan tidak disimpan sama sekali, jadi kalau subscriber sedang offline saat pesan dikirim, pesan tersebut hilang permanen dan tidak akan dikirim ulang saat subscriber kembali online.",
+                "score": 0.7798678281208563
+            },
+            {
+                "doc_id": "redis-caching",
+                "chunk_id": "redis-caching_chunk_0",
+                "text": "Redis menyediakan dua mekanisme persistence: RDB (snapshot periodik seluruh dataset ke disk) dan AOF (mencatat setiap write command secara berurutan ke file log). RDB menghasilkan file lebih kecil dan restart lebih cepat, tapi berisiko kehilangan data sejak snapshot terakhir kalau Redis crash. AOF lebih durable karena mencatat hampir setiap perubahan, tapi ukuran file lebih besar dan proses restart lebih lambat karena harus replay seluruh log.",
+                "score": 0.5198640549303544
+            }
+        ]
+    },
+    {
+        "query_id": "q13",
+        "query": "Bagaimana cara kerja SSL termination di Nginx?",
+        "relevant_doc_ids": [
+            "nginx-reverse-proxy"
+        ],
+        "key_facts": [
+            "enkripsi/dekripsi HTTPS ditangani di level Nginx",
+            "komunikasi Nginx ke backend bisa lewat HTTP biasa"
+        ],
+        "type": "factual",
+        "hypothesis_answer": "SSL termination di Nginx adalah proses di mana Nginx memproses koneksi SSL/TLS, mendekripsi data yang diterima, dan meneruskan permintaan ke server backend melalui koneksi yang tidak terenkripsi. Proses ini dimulai dengan Nginx menerima permintaan HTTPS dari klien, di mana sertifikat SSL yang telah dikonfigurasi akan digunakan untuk mengautentikasi dan mengenkripsi komunikasi. Setelah data dienkripsi, Nginx akan mendekripsinya menggunakan kunci privat yang terkait dengan sertifikat. Setelah itu, Nginx dapat meneruskan permintaan ke server backend menggunakan protokol HTTP biasa, mengurangi beban pengolahan enkripsi pada server backend. Konfigurasi SSL termination dapat dilakukan melalui blok server dalam file konfigurasi Nginx, di mana parameter seperti `ssl_certificate` dan `ssl_certificate_key` digunakan untuk menentukan sertifikat dan kunci privat yang akan digunakan. Dengan cara ini, Nginx",
+        "results": [
+            {
+                "doc_id": "nginx-reverse-proxy",
+                "chunk_id": "nginx-reverse-proxy_chunk_2",
+                "text": "SSL termination berarti proses enkripsi/dekripsi HTTPS ditangani di level Nginx, sementara komunikasi antara Nginx dan server backend bisa berjalan lewat HTTP biasa tanpa enkripsi tambahan. Konfigurasinya memakai directive ssl_certificate dan ssl_certificate_key yang menunjuk ke file sertifikat dan private key. Pendekatan ini menyederhanakan pengelolaan sertifikat karena cukup dipasang di satu titik saja, bukan di setiap server backend.",
+                "score": 0.8663591372328562
+            },
+            {
+                "doc_id": "nginx-reverse-proxy",
+                "chunk_id": "nginx-reverse-proxy_chunk_0",
+                "text": "Directive proxy_pass di Nginx meneruskan request masuk ke server backend. Untuk load balancing antar beberapa instance backend, digunakan blok upstream yang mendefinisikan kumpulan server tujuan. Secara default, Nginx menggunakan algoritma round-robin untuk mendistribusikan request ke server-server dalam upstream tersebut.",
+                "score": 0.5902398392678869
+            }
+        ]
+    },
+    {
+        "query_id": "q14",
+        "query": "Kapan sebaiknya pakai async def dibanding def biasa untuk route handler di FastAPI?",
+        "relevant_doc_ids": [
+            "fastapi-basics"
+        ],
+        "key_facts": [
+            "async def dipakai kalau operasi di dalamnya non-blocking",
+            "def biasa otomatis dijalankan di threadpool terpisah oleh FastAPI"
+        ],
+        "type": "factual",
+        "hypothesis_answer": "Dalam pengembangan aplikasi menggunakan FastAPI, penggunaan `async def` untuk route handler sebaiknya diterapkan ketika terdapat kebutuhan untuk melakukan operasi I/O yang bersifat non-blokir, seperti panggilan ke database, permintaan HTTP eksternal, atau operasi file yang memerlukan waktu lama. Dengan menggunakan `async def`, aplikasi dapat menangani beberapa permintaan secara bersamaan tanpa harus menunggu setiap operasi I/O selesai, sehingga meningkatkan efisiensi dan responsivitas aplikasi. Sebaliknya, penggunaan `def` biasa dapat diterapkan untuk operasi yang bersifat CPU-bound atau ketika tidak ada operasi I/O yang signifikan. Penggunaan `async def` juga memerlukan dukungan dari pustaka pihak ketiga yang mendukung pemrograman asinkron, sehingga penting untuk memastikan bahwa seluruh ekosistem aplikasi konsisten dalam pendekatan ini.",
+        "results": [
+            {
+                "doc_id": "fastapi-basics",
+                "chunk_id": "fastapi-basics_chunk_1",
+                "text": "Route handler di FastAPI bisa didefinisikan sebagai async def atau def biasa. Gunakan async def kalau operasi di dalamnya benar-benar non-blocking (misal query ke database async, HTTP call ke service lain pakai httpx.AsyncClient). Kalau handler memakai def biasa, FastAPI otomatis menjalankannya di threadpool terpisah supaya tidak memblokir event loop utama, tapi ini berarti ada overhead thread management dibanding async native.",
+                "score": 0.7808701763700068
+            },
+            {
+                "doc_id": "fastapi-basics",
+                "chunk_id": "fastapi-basics_chunk_0",
+                "text": "FastAPI menggunakan sistem dependency injection lewat fungsi Depends(). Contoh penggunaan paling umum adalah injeksi database session ke route handler, sehingga logic pembuatan dan penutupan koneksi tidak perlu diulang di setiap endpoint. Dependency bisa disusun bertingkat (nested), di mana satu dependency memanggil dependency lain, dan FastAPI otomatis meresolusinya sebelum handler dijalankan.",
+                "score": 0.6127934088348459
+            }
+        ]
+    }
+]

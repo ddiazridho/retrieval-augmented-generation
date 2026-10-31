@@ -1,0 +1,142 @@
+[
+  {
+    "query_id": "q01",
+    "query": "Apa perbedaan operator <=> dan <-> di pgvector?",
+    "relevant_doc_ids": ["postgres-pgvector"],
+    "key_facts": [
+      "<=> adalah operator cosine distance",
+      "<-> adalah operator Euclidean distance atau L2"
+    ],
+    "type": "factual"
+  },
+  {
+    "query_id": "q02",
+    "query": "Apa default eviction policy Redis kalau memori penuh?",
+    "relevant_doc_ids": ["redis-caching"],
+    "key_facts": [
+      "default eviction policy adalah noeviction",
+      "noeviction berarti Redis menolak write baru, bukan menghapus data lama"
+    ],
+    "type": "factual_numeric"
+  },
+  {
+    "query_id": "q03",
+    "query": "Berapa nilai default parameter m dan ef_construction untuk index HNSW di pgvector?",
+    "relevant_doc_ids": ["postgres-pgvector"],
+    "key_facts": [
+      "m default 16",
+      "ef_construction default 64"
+    ],
+    "type": "factual_numeric"
+  },
+  {
+    "query_id": "q04",
+    "query": "Bagaimana cara kerja dependency injection database session di FastAPI?",
+    "relevant_doc_ids": ["fastapi-basics"],
+    "key_facts": [
+      "menggunakan fungsi Depends()",
+      "dependency bisa disusun bertingkat/nested"
+    ],
+    "type": "factual"
+  },
+  {
+    "query_id": "q05",
+    "query": "Apa bedanya restart policy always dan on-failure di Docker Compose?",
+    "relevant_doc_ids": ["docker-compose"],
+    "key_facts": [
+      "always me-restart apapun penyebab berhentinya container",
+      "on-failure hanya restart kalau exit code menandakan error"
+    ],
+    "type": "factual"
+  },
+  {
+    "query_id": "q06",
+    "query": "Strategi apa yang direkomendasikan saat menerima error 429 dari OpenAI API?",
+    "relevant_doc_ids": ["openai-rate-limits"],
+    "key_facts": [
+      "exponential backoff",
+      "jeda waktu berlipat ganda tiap percobaan",
+      "disarankan menambahkan jitter"
+    ],
+    "type": "factual"
+  },
+  {
+    "query_id": "q07",
+    "query": "Berapa persen diskon biaya kalau menggunakan OpenAI Batch API, dan berapa lama waktu pemrosesannya?",
+    "relevant_doc_ids": ["openai-rate-limits"],
+    "key_facts": [
+      "diskon 50%",
+      "hasil dikembalikan dalam jendela waktu hingga 24 jam"
+    ],
+    "type": "factual_numeric"
+  },
+  {
+    "query_id": "q08",
+    "query": "Bagaimana cara mengatur supaya koneksi dari satu klien tidak membanjiri server?",
+    "relevant_doc_ids": ["nginx-reverse-proxy"],
+    "key_facts": [
+      "diatur lewat limit_req_zone dan limit_req",
+      "menyimpan state per klien di area memori bersama"
+    ],
+    "type": "ambiguous",
+    "notes": "kata 'koneksi' juga muncul di dokumen docker-compose (networks) dan postgres-pgvector (connection ke database), berpotensi salah retrieve ke dokumen yang tidak dimaksud"
+  },
+  {
+    "query_id": "q09",
+    "query": "Bagaimana strategi menggabungkan retry dan caching supaya biaya panggilan API ke LLM lebih hemat?",
+    "relevant_doc_ids": ["openai-rate-limits", "redis-caching"],
+    "key_facts": [
+      "exponential backoff untuk menangani rate limit",
+      "Redis bisa dipakai untuk cache hasil supaya tidak perlu panggil API berulang untuk query yang sama"
+    ],
+    "type": "multi_doc"
+  },
+  {
+    "query_id": "q10",
+    "query": "Bagaimana cara setup Kubernetes ingress dengan cert-manager untuk auto-renewal SSL?",
+    "relevant_doc_ids": [],
+    "key_facts": [],
+    "type": "unanswerable",
+    "notes": "sengaja tidak ada di corpus manapun - dipakai untuk menguji apakah sistem jujur bilang tidak tahu, atau malah mengarang jawaban dengan mencampur konsep SSL dari dokumen nginx"
+  },
+  {
+    "query_id": "q11",
+    "query": "Apa bedanya named volume dan bind mount di Docker?",
+    "relevant_doc_ids": ["docker-compose"],
+    "key_facts": [
+      "named volume dikelola Docker, disimpan di lokasi internal",
+      "bind mount menghubungkan langsung ke path di filesystem host"
+    ],
+    "type": "factual"
+  },
+  {
+    "query_id": "q12",
+    "query": "Apa yang terjadi kalau subscriber sedang offline saat ada pesan dikirim lewat Redis pub/sub?",
+    "relevant_doc_ids": ["redis-caching"],
+    "key_facts": [
+      "pesan hilang permanen",
+      "tidak dikirim ulang saat subscriber kembali online"
+    ],
+    "type": "factual"
+  },
+  {
+    "query_id": "q13",
+    "query": "Bagaimana cara kerja SSL termination di Nginx?",
+    "relevant_doc_ids": ["nginx-reverse-proxy"],
+    "key_facts": [
+      "enkripsi/dekripsi HTTPS ditangani di level Nginx",
+      "komunikasi Nginx ke backend bisa lewat HTTP biasa"
+    ],
+    "type": "factual"
+  },
+  {
+    "query_id": "q14",
+    "query": "Kapan sebaiknya pakai async def dibanding def biasa untuk route handler di FastAPI?",
+    "relevant_doc_ids": ["fastapi-basics"],
+    "key_facts": [
+      "async def dipakai kalau operasi di dalamnya non-blocking",
+      "def biasa otomatis dijalankan di threadpool terpisah oleh FastAPI"
+    ],
+    "type": "factual"
+  }
+]

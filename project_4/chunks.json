@@ -1,0 +1,92 @@
+[
+  {
+    "doc_id": "fastapi-basics",
+    "chunk_id": "fastapi-basics_chunk_0",
+    "text": "FastAPI menggunakan sistem dependency injection lewat fungsi Depends(). Contoh penggunaan paling umum adalah injeksi database session ke route handler, sehingga logic pembuatan dan penutupan koneksi tidak perlu diulang di setiap endpoint. Dependency bisa disusun bertingkat (nested), di mana satu dependency memanggil dependency lain, dan FastAPI otomatis meresolusinya sebelum handler dijalankan."
+  },
+  {
+    "doc_id": "fastapi-basics",
+    "chunk_id": "fastapi-basics_chunk_1",
+    "text": "Route handler di FastAPI bisa didefinisikan sebagai async def atau def biasa. Gunakan async def kalau operasi di dalamnya benar-benar non-blocking (misal query ke database async, HTTP call ke service lain pakai httpx.AsyncClient). Kalau handler memakai def biasa, FastAPI otomatis menjalankannya di threadpool terpisah supaya tidak memblokir event loop utama, tapi ini berarti ada overhead thread management dibanding async native."
+  },
+  {
+    "doc_id": "fastapi-basics",
+    "chunk_id": "fastapi-basics_chunk_2",
+    "text": "Validasi input di FastAPI ditangani otomatis lewat Pydantic model. Kalau request body tidak sesuai skema (tipe data salah, field wajib hilang), FastAPI otomatis mengembalikan response dengan status code 422 Unprocessable Entity beserta detail field mana yang gagal validasi. Parameter response_model pada decorator route dipakai untuk membentuk ulang struktur output, termasuk menyembunyikan field yang tidak ingin diekspos ke client."
+  },
+  {
+    "doc_id": "postgres-pgvector",
+    "chunk_id": "postgres-pgvector_chunk_0",
+    "text": "Ekstensi pgvector menambahkan tipe data vector ke PostgreSQL. Aktivasi dilakukan lewat perintah CREATE EXTENSION vector. Kolom didefinisikan dengan menyebutkan dimensinya secara eksplisit, misalnya vector(1536) untuk menyimpan embedding dari model dengan dimensi 1536. Tanpa ekstensi ini, PostgreSQL tidak punya cara native untuk menyimpan atau mengindeks data embedding."
+  },
+  {
+    "doc_id": "postgres-pgvector",
+    "chunk_id": "postgres-pgvector_chunk_1",
+    "text": "Index HNSW di pgvector dibuat lewat perintah CREATE INDEX ... USING hnsw. Dua parameter utamanya adalah m (jumlah koneksi maksimum per node dalam graph, default 16) dan ef_construction (seberapa teliti pencarian tetangga saat index dibangun, default 64). Dibanding index ivfflat, HNSW memberikan query yang lebih cepat namun waktu pembuatan index (build time) yang lebih lama, terutama untuk dataset besar."
+  },
+  {
+    "doc_id": "postgres-pgvector",
+    "chunk_id": "postgres-pgvector_chunk_2",
+    "text": "pgvector menyediakan tiga operator jarak: <-> untuk Euclidean distance (L2), <#> untuk negative inner product, dan <=> untuk cosine distance. Untuk kasus embedding dari model bahasa seperti OpenAI atau sentence-transformers, cosine distance (<=>) adalah pilihan paling umum karena embedding tersebut biasanya dioptimalkan berdasarkan kemiripan arah vektor, bukan jarak absolut."
+  },
+  {
+    "doc_id": "docker-compose",
+    "chunk_id": "docker-compose_chunk_0",
+    "text": "File docker-compose.yml disusun dari beberapa top-level key utama: services (definisi tiap container), volumes (penyimpanan data persisten), dan networks (pengaturan jaringan antar container). Setiap service bisa punya konfigurasi image, ports, environment, dan depends_on untuk menentukan urutan startup antar container."
+  },
+  {
+    "doc_id": "docker-compose",
+    "chunk_id": "docker-compose_chunk_1",
+    "text": "Directive healthcheck dipakai untuk memberi tahu Docker cara mengecek apakah container benar-benar sehat, bukan cuma sekadar menyala. Restart policy punya empat opsi: no (default, tidak pernah restart otomatis), always (selalu restart apa pun penyebab berhentinya), on-failure (restart hanya kalau exit code menandakan error), dan unless-stopped (mirip always, tapi tidak restart kalau container dihentikan manual oleh user)."
+  },
+  {
+    "doc_id": "docker-compose",
+    "chunk_id": "docker-compose_chunk_2",
+    "text": "Named volume dikelola sepenuhnya oleh Docker dan disimpan di lokasi internal (biasanya di bawah /var/lib/docker/volumes), sementara bind mount menghubungkan langsung ke path spesifik di filesystem host. Named volume lebih portable antar environment karena tidak bergantung pada struktur folder host, sementara bind mount lebih mudah untuk keperluan development karena perubahan file di host langsung terlihat di container tanpa rebuild."
+  },
+  {
+    "doc_id": "redis-caching",
+    "chunk_id": "redis-caching_chunk_0",
+    "text": "Redis menyediakan dua mekanisme persistence: RDB (snapshot periodik seluruh dataset ke disk) dan AOF (mencatat setiap write command secara berurutan ke file log). RDB menghasilkan file lebih kecil dan restart lebih cepat, tapi berisiko kehilangan data sejak snapshot terakhir kalau Redis crash. AOF lebih durable karena mencatat hampir setiap perubahan, tapi ukuran file lebih besar dan proses restart lebih lambat karena harus replay seluruh log."
+  },
+  {
+    "doc_id": "redis-caching",
+    "chunk_id": "redis-caching_chunk_1",
+    "text": "Kebijakan eviction Redis diatur lewat directive maxmemory-policy. Pilihan yang tersedia antara lain noeviction (default, Redis akan menolak write baru kalau memori penuh alih-alih menghapus data lama), allkeys-lru (hapus key yang paling jarang diakses di seluruh dataset), volatile-lru (sama seperti allkeys-lru tapi hanya berlaku pada key yang punya TTL), dan allkeys-lfu (berdasarkan frekuensi akses, bukan recency)."
+  },
+  {
+    "doc_id": "redis-caching",
+    "chunk_id": "redis-caching_chunk_2",
+    "text": "Model pub/sub di Redis bekerja lewat command PUBLISH dan SUBSCRIBE. Publisher mengirim pesan ke sebuah channel, dan semua subscriber yang sedang mendengarkan channel itu akan menerima pesan secara real-time. Karakteristik penting: pesan tidak disimpan sama sekali, jadi kalau subscriber sedang offline saat pesan dikirim, pesan tersebut hilang permanen dan tidak akan dikirim ulang saat subscriber kembali online."
+  },
+  {
+    "doc_id": "nginx-reverse-proxy",
+    "chunk_id": "nginx-reverse-proxy_chunk_0",
+    "text": "Directive proxy_pass di Nginx meneruskan request masuk ke server backend. Untuk load balancing antar beberapa instance backend, digunakan blok upstream yang mendefinisikan kumpulan server tujuan. Secara default, Nginx menggunakan algoritma round-robin untuk mendistribusikan request ke server-server dalam upstream tersebut."
+  },
+  {
+    "doc_id": "nginx-reverse-proxy",
+    "chunk_id": "nginx-reverse-proxy_chunk_1",
+    "text": "Rate limiting di Nginx diatur lewat dua directive: limit_req_zone (mendefinisikan area memori bersama untuk menyimpan state per klien) dan limit_req (menerapkan limit tersebut di lokasi tertentu). Contoh konfigurasi zone dengan ukuran 10m mampu menyimpan state kurang lebih 160.000 alamat IP unik, karena tiap entri IP membutuhkan sekitar 64 byte memori."
+  },
+  {
+    "doc_id": "nginx-reverse-proxy",
+    "chunk_id": "nginx-reverse-proxy_chunk_2",
+    "text": "SSL termination berarti proses enkripsi/dekripsi HTTPS ditangani di level Nginx, sementara komunikasi antara Nginx dan server backend bisa berjalan lewat HTTP biasa tanpa enkripsi tambahan. Konfigurasinya memakai directive ssl_certificate dan ssl_certificate_key yang menunjuk ke file sertifikat dan private key. Pendekatan ini menyederhanakan pengelolaan sertifikat karena cukup dipasang di satu titik saja, bukan di setiap server backend."
+  },
+  {
+    "doc_id": "openai-rate-limits",
+    "chunk_id": "openai-rate-limits_chunk_0",
+    "text": "Rate limit OpenAI API diukur dalam dua satuan: RPM (requests per minute) dan TPM (tokens per minute). Batas keduanya bervariasi tergantung usage tier akun, yang biasanya naik otomatis seiring akumulasi total pembayaran dan lama waktu penggunaan akun. Melebihi salah satu batas ini akan menghasilkan response dengan status code 429."
+  },
+  {
+    "doc_id": "openai-rate-limits",
+    "chunk_id": "openai-rate-limits_chunk_1",
+    "text": "Strategi yang direkomendasikan untuk menangani error 429 adalah exponential backoff: retry dilakukan dengan jeda waktu yang berlipat ganda di setiap percobaan, dimulai dari base delay tertentu (misalnya 1 detik, lalu 2 detik, 4 detik, dan seterusnya). Menambahkan jitter (variasi acak kecil pada waktu tunggu) juga disarankan untuk mencegah banyak client melakukan retry secara bersamaan pada waktu yang persis sama."
+  },
+  {
+    "doc_id": "openai-rate-limits",
+    "chunk_id": "openai-rate-limits_chunk_2",
+    "text": "Batch API dari OpenAI menawarkan diskon biaya sebesar 50% dibanding pemanggilan API biasa, dengan syarat hasil dikembalikan dalam jendela waktu hingga 24 jam, bukan secara instan. Batch API cocok untuk workload yang tidak butuh respons real-time, seperti pemrosesan embedding untuk seluruh koleksi dokumen sekaligus atau evaluasi model dalam jumlah besar."
+  }
+]
